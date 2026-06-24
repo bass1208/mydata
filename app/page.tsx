@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, type PointerEvent } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 import bg from "/public/img/16-9.jpeg";
 import cdsLogo from "/public/img/cds_1.png";
-import girl from "/public/img/img_mclane.png";
+import girl from "/public/img/girl.png";
 import imgImac from "/public/img/img_imac.png";
 import imgGb from "/public/img/img_gb.png";
 import iconInsta from "/public/icon/icon_insta.png";
@@ -14,72 +14,60 @@ import iconX from "/public/icon/icon_x.png";
 
 const items = [
   { key: "gb", label: "Game", src: imgGb, width: 250, height: 250 },
-  { key: "img_mclane", label: "Hobby", src: girl, width: 150, height: 150 },
+  { key: "img_mclane", label: "Hobby", src: girl, width: 130, height: 130 },
   { key: "imac", label: "Design", src: imgImac, width: 250, height: 250 },
 ];
 
-const STEP = 120;
-
 export default function Home() {
-  const [rotation, setRotation] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStartX, setDragStartX] = useState(0);
-  const [startRotation, setStartRotation] = useState(0);
-  const [moved, setMoved] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(1);
+const [dragStartX, setDragStartX] = useState<number | null>(null);
+const rotateNext = () => {
+  setActiveIndex((prev) => (prev + 1) % items.length);
+};
 
+const rotatePrev = () => {
+  setActiveIndex((prev) =>
+    prev === 0 ? items.length - 1 : prev - 1
+  );
+};
+const handlePointerDown = (
+  e: React.PointerEvent<HTMLDivElement>
+) => {
+  setDragStartX(e.clientX);
+};
+
+const handlePointerUp = (
+  e: React.PointerEvent<HTMLDivElement>
+) => {
+  if (dragStartX === null) return;
+
+  const diff = e.clientX - dragStartX;
+
+  if (diff > 50) {
+    rotatePrev();
+  } else if (diff < -50) {
+    rotateNext();
+  }
+
+  setDragStartX(null);
+};
   const getPosition = (index: number) => {
-    const baseAngle = 90 + index * STEP;
-    const angle = baseAngle + rotation;
+    const total = items.length;
+    const diff = (index - activeIndex + total) % total;
+
+    const angleMap = [90, 210, 330];
+    const angle = angleMap[diff];
     const rad = (angle * Math.PI) / 180;
 
-    const yValue = Math.sin(rad);
-    const isCenter = yValue > 0.92;
+    const isCenter = diff === 0;
 
     return {
       x: Math.cos(rad),
-      y: yValue,
+      y: Math.sin(rad),
       scale: isCenter ? 1.1 : 0.4,
-      zIndex: Math.round(yValue * 100),
+      zIndex: isCenter ? 30 : 20,
       opacity: isCenter ? 1 : 0.6,
     };
-  };
-
-  const snapToNearest = (currentRotation: number) => {
-    const nearest = Math.round(currentRotation / STEP) * STEP;
-    setRotation(nearest);
-  };
-
-  const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
-    setIsDragging(true);
-    setDragStartX(e.clientX);
-    setStartRotation(rotation);
-    setMoved(false);
-  };
-
-  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-
-    const diff = e.clientX - dragStartX;
-
-    if (Math.abs(diff) > 5) {
-      setMoved(true);
-    }
-
-    setRotation(startRotation + diff * 0.45);
-  };
-
-  const handlePointerUp = () => {
-    if (!isDragging) return;
-
-    setIsDragging(false);
-    snapToNearest(rotation);
-  };
-
-  const handleItemClick = (index: number) => {
-    if (moved) return;
-
-    const targetRotation = -index * STEP;
-    setRotation(targetRotation);
   };
 
   return (
@@ -97,7 +85,7 @@ export default function Home() {
       <div
         className="
           absolute left-1/2 z-0 pointer-events-none
-          top-[50px] -translate-x-1/2
+          top-[80px] -translate-x-1/2
           md:top-[140px]
         "
       >
@@ -110,6 +98,7 @@ export default function Home() {
       </div>
 
       {/* Carousel */}
+
       <div
         className="
           absolute inset-0 flex items-center justify-center
@@ -117,18 +106,17 @@ export default function Home() {
           md:-translate-y-[20px]
         "
       >
-        <div
-          className="
-            relative
-            w-[100vw] max-w-[760px]
-            h-[320px] md:h-[420px]
-            touch-pan-y select-none
-          "
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-        >
+<div
+  className="
+    relative
+    w-[100vw] max-w-[760px]
+    h-[320px]
+    md:h-[420px]
+    touch-pan-y
+  "
+  onPointerDown={handlePointerDown}
+  onPointerUp={handlePointerUp}
+>
           {items.map((item, index) => {
             const pos = getPosition(index);
 
@@ -136,12 +124,12 @@ export default function Home() {
               <button
                 key={item.key}
                 type="button"
-                onClick={() => handleItemClick(index)}
+                onClick={() => setActiveIndex(index)}
                 className="
                   absolute left-1/2 top-1/2
                   flex flex-col items-center
                   cursor-pointer
-                  transition-transform duration-700 ease-out
+                  transition-all duration-700 ease-in-out
                 "
                 style={{
                   transform: `
@@ -155,7 +143,6 @@ export default function Home() {
                   `,
                   zIndex: pos.zIndex,
                   opacity: pos.opacity,
-                  transitionDuration: isDragging ? "0ms" : "700ms",
                 }}
               >
                 <Image
@@ -163,12 +150,12 @@ export default function Home() {
                   alt={item.label}
                   width={item.width}
                   height={item.height}
+                  priority={index === activeIndex}
                   className="
                     pointer-events-none select-none
-                    w-[150px] h-auto md:w-[250px]
+                    w-[150px] h-auto
+                    md:w-[250px]
                   "
-                  priority
-                  draggable={false}
                 />
 
                 <p className="mt-[8px] text-center text-black text-[13px] md:text-[16px]">
@@ -185,7 +172,8 @@ export default function Home() {
         className="
           absolute bottom-0 left-0 right-0 z-10
           flex flex-col items-center justify-end
-          pb-[36px] md:pb-[140px]
+          pb-[36px]
+          md:pb-[140px]
         "
       >
         <div
@@ -201,13 +189,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="icon-link float-up"
           >
-            <Image
-              src={iconInsta}
-              alt="Instagram"
-              width={50}
-              height={50}
-              className="w-[40px] md:w-[50px] h-auto"
-            />
+            <Image src={iconInsta} alt="Instagram" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
           </a>
 
           <a
@@ -216,13 +198,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="icon-link float-down"
           >
-            <Image
-              src={iconPint}
-              alt="Pinterest"
-              width={50}
-              height={50}
-              className="w-[40px] md:w-[50px] h-auto"
-            />
+            <Image src={iconPint} alt="Pinterest" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
           </a>
 
           <a
@@ -231,13 +207,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="icon-link float-up"
           >
-            <Image
-              src={iconX}
-              alt="X"
-              width={50}
-              height={50}
-              className="w-[40px] md:w-[50px] h-auto"
-            />
+            <Image src={iconX} alt="X" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
           </a>
         </div>
 
