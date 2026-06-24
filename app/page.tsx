@@ -188,6 +188,7 @@ const handlePointerUp = (
             target="_blank"
             rel="noopener noreferrer"
             className="icon-link float-up"
+            onClick={(e) => e.currentTarget.blur()}
           >
             <Image src={iconInsta} alt="Instagram" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
           </a>
@@ -197,6 +198,7 @@ const handlePointerUp = (
             target="_blank"
             rel="noopener noreferrer"
             className="icon-link float-down"
+            onClick={(e) => e.currentTarget.blur()}
           >
             <Image src={iconPint} alt="Pinterest" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
           </a>
@@ -206,6 +208,7 @@ const handlePointerUp = (
             target="_blank"
             rel="noopener noreferrer"
             className="icon-link float-up"
+            onClick={(e) => e.currentTarget.blur()}
           >
             <Image src={iconX} alt="X" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
           </a>
