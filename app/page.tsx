@@ -20,7 +20,37 @@ const items = [
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(1);
+const [dragStartX, setDragStartX] = useState<number | null>(null);
+const rotateNext = () => {
+  setActiveIndex((prev) => (prev + 1) % items.length);
+};
 
+const rotatePrev = () => {
+  setActiveIndex((prev) =>
+    prev === 0 ? items.length - 1 : prev - 1
+  );
+};
+const handlePointerDown = (
+  e: React.PointerEvent<HTMLDivElement>
+) => {
+  setDragStartX(e.clientX);
+};
+
+const handlePointerUp = (
+  e: React.PointerEvent<HTMLDivElement>
+) => {
+  if (dragStartX === null) return;
+
+  const diff = e.clientX - dragStartX;
+
+  if (diff > 50) {
+    rotatePrev();
+  } else if (diff < -50) {
+    rotateNext();
+  }
+
+  setDragStartX(null);
+};
   const getPosition = (index: number) => {
     const total = items.length;
     const diff = (index - activeIndex + total) % total;
@@ -68,6 +98,8 @@ export default function Home() {
       </div>
 
       {/* Carousel */}
+      onPointerDown
+onPointerUp
       <div
         className="
           absolute inset-0 flex items-center justify-center
@@ -75,14 +107,17 @@ export default function Home() {
           md:-translate-y-[20px]
         "
       >
-        <div
-          className="
-            relative
-            w-[100vw] max-w-[760px]
-            h-[320px]
-            md:h-[420px]
-          "
-        >
+<div
+  className="
+    relative
+    w-[100vw] max-w-[760px]
+    h-[320px]
+    md:h-[420px]
+    touch-pan-y
+  "
+  onPointerDown={handlePointerDown}
+  onPointerUp={handlePointerUp}
+>
           {items.map((item, index) => {
             const pos = getPosition(index);
 
