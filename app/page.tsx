@@ -34,7 +34,7 @@ export default function Home() {
     return {
       x: Math.cos(rad),
       y: Math.sin(rad),
-      scale: isCenter ? 1.25 : 0.4,
+      scale: isCenter ? 1.1 : 0.4,
       zIndex: isCenter ? 30 : 20,
       opacity: isCenter ? 1 : 0.6,
     };
