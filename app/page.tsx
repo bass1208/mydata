@@ -14,7 +14,7 @@ import iconX from "/public/icon/icon_x.png";
 
 const items = [
   { key: "gb", label: "Game", src: imgGb, width: 250, height: 250 },
-  { key: "img_mclane", label: "Hobby", src: girl, width: 150, height: 150 },
+  { key: "img_mclane", label: "Hobby", src: girl, width: 130, height: 130 },
   { key: "imac", label: "Design", src: imgImac, width: 250, height: 250 },
 ];
 
