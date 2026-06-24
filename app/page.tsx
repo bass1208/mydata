@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import bg from "/public/img/16-9.jpeg";
 import cdsLogo from "/public/img/cds_1.png";
-import girl from "/public/img/img_mclane.png";
+import girl from "/public/img/girl.png";
 import imgImac from "/public/img/img_imac.png";
 import imgGb from "/public/img/img_gb.png";
 import iconInsta from "/public/icon/icon_insta.png";
