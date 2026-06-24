@@ -60,7 +60,7 @@ export default function Home() {
         "
       >
         <Image
-          className="float-typo w-[220px] h-auto md:w-[400px]"
+          className="float-typo w-[80vw] max-w-[340px] h-auto md:w-[400px]"
           src={cdsLogo}
           alt="cds logo"
           priority
