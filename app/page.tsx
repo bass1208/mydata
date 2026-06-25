@@ -63,7 +63,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="icon-link float-up"
-            onClick={(e) => e.currentTarget.blur()}
+            
           >
             <Image
               src={iconInsta}
@@ -79,7 +79,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="icon-link float-down"
-            onClick={(e) => e.currentTarget.blur()}
+           
           >
             <Image
               src={iconPint}
@@ -95,7 +95,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="icon-link float-up"
-            onClick={(e) => e.currentTarget.blur()}
+           
           >
             <Image
               src={iconX}
