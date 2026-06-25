@@ -113,6 +113,24 @@ export default function Home() {
                   />
 
                   {isCenter && (
+                    <span
+                      className="
+                        absolute left-1/2 top-1/2
+                        -translate-x-1/2 -translate-y-1/2
+                        opacity-0 group-hover:opacity-100
+                        transition-opacity duration-300
+                        text-[12px] md:text-[14px]
+                        tracking-[0.2em]
+                        text-black
+                        bg-white/70
+                        px-4 py-2
+                        rounded-full
+                        whitespace-nowrap
+                        pointer-events-none
+                      "
+                    >
+                      VIEW PROJECT
+                    </span>
                   )}
                 </div>
 
@@ -142,7 +160,7 @@ export default function Home() {
 
         <div className="text-center text-[12px] md:text-[14px] leading-[14px] text-black">
           <p className="mb-[8px]">© TIKLE</p>
-          <p>based in tokyo</p>
+          <p>Creative Design Studio based in tokyo</p>
         </div>
       </div>
     </main>
