@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import bg from "/public/img/16-9.jpeg";
 import cdsLogo from "/public/img/cds_1.png";
@@ -13,9 +14,30 @@ import iconPint from "/public/icon/icon_pint.png";
 import iconX from "/public/icon/icon_x.png";
 
 const items = [
-  { key: "gb", label: "Game", src: imgGb, width: 250, height: 250 },
-  { key: "img_mclane", label: "Hobby", src: girl, width: 130, height: 130 },
-  { key: "imac", label: "Design", src: imgImac, width: 250, height: 250 },
+  {
+    key: "gb",
+    label: "Game",
+    src: imgGb,
+    width: 250,
+    height: 250,
+    href: "/game",
+  },
+  {
+    key: "img_mclane",
+    label: "Hobby",
+    src: girl,
+    width: 150,
+    height: 150,
+    href: "/hobby",
+  },
+  {
+    key: "imac",
+    label: "Design",
+    src: imgImac,
+    width: 250,
+    height: 250,
+    href: "/design",
+  },
 ];
 
 export default function Home() {
@@ -121,10 +143,19 @@ const handlePointerUp = (
             const pos = getPosition(index);
 
             return (
-              <button
-                key={item.key}
-                type="button"
-                onClick={() => setActiveIndex(index)}
+        <Link
+  key={item.key}
+  href={item.href}
+  className="absolute left-1/2 top-1/2 flex flex-col items-center transition-all duration-700 ease-in-out cursor-pointer"
+  style={{
+    transform: `
+      translate(-50%, -50%)
+      translate3d(${pos.x}px, ${pos.y}px, 0)
+      scale(${pos.scale})
+    `,
+    zIndex: pos.zIndex,
+    opacity: pos.opacity,
+  }}
                 className="
                   absolute left-1/2 top-1/2
                   flex flex-col items-center
@@ -161,7 +192,7 @@ const handlePointerUp = (
                 <p className="mt-[8px] text-center text-black text-[13px] md:text-[16px]">
                   {item.label}
                 </p>
-              </button>
+              </Link>
             );
           })}
         </div>
