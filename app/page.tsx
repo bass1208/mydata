@@ -113,27 +113,35 @@ export default function Home() {
                   />
 
                   {isCenter && (
-                  <span
+             <span
   className="
+    enter-cursor
+
     absolute
     left-1/2
     -top-10
     -translate-x-1/2
 
-    opacity-0
-    group-hover:opacity-100
-    transition-all
-    duration-300
-
-    group-hover:-translate-y-2
-
+    overflow-hidden
     whitespace-nowrap
+
+    opacity-0
+    w-0
+
+    group-hover:opacity-100
+    group-hover:w-[72px]
+
+    transition-all
+    duration-700
+    delay-200
+
     pointer-events-none
 
     text-[10px]
     md:text-[11px]
+
     font-semibold
-    tracking-[0.15em]
+    tracking-[0.18em]
 
     text-black
     bg-white/90
@@ -147,7 +155,7 @@ export default function Home() {
     py-1
   "
 >
-  VIEW PROJECT
+  ENTER
 </span>
                   )}
                 </div>
