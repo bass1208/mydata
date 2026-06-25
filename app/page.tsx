@@ -4,6 +4,7 @@ import { useRef, useState, type PointerEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
+
 import bg from "/public/img/16-9.jpeg";
 import cdsLogo from "/public/img/cds_1.png";
 import girl from "/public/img/girl.png";
@@ -35,34 +36,56 @@ export default function Home() {
     setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
   };
 
- const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
+
+
+
+const clickedIndexRef = useRef<number | null>(null);
+
+
+const handlePointerDown = (
+  e: PointerEvent<HTMLDivElement>,
+  index?: number
+) => {
   startXRef.current = e.clientX;
   isDraggingRef.current = true;
-  shouldBlockClickRef.current = false;
 
-  e.currentTarget.setPointerCapture(e.pointerId);
+  clickedIndexRef.current =
+    index === undefined ? null : index;
 };
 
 const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
   if (!isDraggingRef.current) return;
 };
 
-  const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
+const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
   if (!isDraggingRef.current) return;
 
   const diff = e.clientX - startXRef.current;
 
-  if (Math.abs(diff) > 70) {
-    shouldBlockClickRef.current = true;
+  isDraggingRef.current = false;
 
+  // 드래그
+  if (Math.abs(diff) > 70) {
     if (diff < 0) {
-      // 왼쪽으로 드래그 → 왼쪽으로 회전
       rotatePrev();
     } else {
-      // 오른쪽으로 드래그 → 오른쪽으로 회전
       rotateNext();
     }
+
+    return;
   }
+
+  // 클릭
+  if (clickedIndexRef.current === null) return;
+
+  const index = clickedIndexRef.current;
+
+  if (index === activeIndex) {
+    router.push(items[index].href);
+  } else {
+    setActiveIndex(index);
+  }
+};
 
   isDraggingRef.current = false;
 
@@ -125,10 +148,9 @@ const handleItemClick = (index: number) => {
       <div className="absolute inset-0 flex items-center justify-center -translate-y-[40px] md:-translate-y-[20px]">
         <div
           className="relative w-[100vw] max-w-[760px] h-[320px] md:h-[420px] touch-pan-y select-none"
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
+        onPointerMove={handlePointerMove}
+ onPointerUp={handlePointerUp}
+ onPointerCancel={handlePointerUp}
         >
           {items.map((item, index) => {
             const pos = getPosition(index);
@@ -138,7 +160,7 @@ const handleItemClick = (index: number) => {
               <button
                 key={item.key}
                 type="button"
-                onClick={() => handleItemClick(index)}
+                onPointerDown={(e)=>handlePointerDown(e,index)}
                 className="group absolute left-1/2 top-1/2 flex flex-col items-center transition-all duration-700 ease-in-out cursor-pointer"
                 style={{
                   transform: `
