@@ -57,13 +57,15 @@ export default function Home() {
 
     const diff = e.clientX - startXRef.current;
 
-    if (Math.abs(diff) > 50) {
-      if (diff < 0) {
-        rotateNext();
-      } else {
-        rotatePrev();
-      }
-    }
+ if (Math.abs(diff) > 70) {
+  if (diff < 0) {
+    // 왼쪽으로 드래그 → 왼쪽으로 회전
+    rotatePrev();
+  } else {
+    // 오른쪽으로 드래그 → 오른쪽으로 회전
+    rotateNext();
+  }
+}
 
     isDraggingRef.current = false;
   };
