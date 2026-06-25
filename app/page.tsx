@@ -25,7 +25,7 @@ export default function Home() {
 
   const startXRef = useRef(0);
   const isDraggingRef = useRef(false);
-  const hasDraggedRef = useRef(false);
+  const shouldBlockClickRef = useRef(false);
 
   const rotateNext = () => {
     setActiveIndex((prev) => (prev + 1) % items.length);
@@ -42,47 +42,47 @@ export default function Home() {
     e.currentTarget.setPointerCapture(e.pointerId);
   };
 
-  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (!isDraggingRef.current) return;
+const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
+  if (!isDraggingRef.current) return;
+};
 
-    const diff = e.clientX - startXRef.current;
+const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
+  if (!isDraggingRef.current) return;
 
-    if (Math.abs(diff) > 8) {
-      hasDraggedRef.current = true;
+  const diff = e.clientX - startXRef.current;
+
+  if (Math.abs(diff) > 50) {
+    shouldBlockClickRef.current = true;
+
+    if (diff < 0) {
+      rotatePrev();
+    } else {
+      rotateNext();
     }
-  };
-
-  const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
-    if (!isDraggingRef.current) return;
-
-    const diff = e.clientX - startXRef.current;
-
- if (Math.abs(diff) > 70) {
-  if (diff < 0) {
-    // 왼쪽으로 드래그 → 왼쪽으로 회전
-    rotatePrev();
   } else {
-    // 오른쪽으로 드래그 → 오른쪽으로 회전
-    rotateNext();
+    shouldBlockClickRef.current = false;
   }
-}
 
-    isDraggingRef.current = false;
-  };
+  isDraggingRef.current = false;
 
-  const handleItemClick = (index: number) => {
-    if (hasDraggedRef.current) {
-      hasDraggedRef.current = false;
-      return;
-    }
+  try {
+    e.currentTarget.releasePointerCapture(e.pointerId);
+  } catch {}
+};
 
-    if (index === activeIndex) {
-      router.push(items[index].href);
-      return;
-    }
+const handleItemClick = (index: number) => {
+  if (shouldBlockClickRef.current) {
+    shouldBlockClickRef.current = false;
+    return;
+  }
 
-    setActiveIndex(index);
-  };
+  if (index === activeIndex) {
+    router.push(items[index].href);
+    return;
+  }
+
+  setActiveIndex(index);
+};
 
   const getPosition = (index: number) => {
     const total = items.length;
