@@ -111,14 +111,6 @@ export default function Home() {
                     priority={isCenter}
                     className="pointer-events-none select-none w-[150px] h-auto md:w-[250px]"
                   />
-
-                  {isCenter && (
-                    <span className="absolute inset-0 flex items-center justify-center p-4">
-                      <p className="text-white text-[12px] md:text-[14px] leading-relaxed text-center">
-                        {item.description}
-                      </p>
-                    </span>
-                  )}
                 </div>
 
                 <p className="mt-[8px] text-center text-black text-[13px] md:text-[16px]">
