@@ -5,10 +5,10 @@ import Image from "next/image";
 
 
 const slides = [
-  { src: "/img/design/design_01.jpg", title: "Project 01" },
-  { src: "/img/design/design_02.jpg", title: "Project 02" },
-  { src: "/img/design/design_03.jpg", title: "Project 03" },
-  { src: "/img/design/design_04.jpg", title: "Project 04" },
+  { src: "/img/design/design_01.jpeg", title: "Project 01" },
+  { src: "/img/design/design_02.jpeg", title: "Project 02" },
+  { src: "/img/design/design_03.jpeg", title: "Project 03" },
+  { src: "/img/design/design_04.jpeg", title: "Project 04" },
 ];
 
 export default function DesignPage() {
