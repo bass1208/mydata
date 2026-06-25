@@ -12,7 +12,6 @@ import imgGb from "/public/img/img_gb.png";
 import iconInsta from "/public/icon/icon_insta.png";
 import iconPint from "/public/icon/icon_pint.png";
 import iconX from "/public/icon/icon_x.png";
-cursor: url('/cursor.cur'), pointer;
 const items = [
   { key: "gb", label: "Game", src: imgGb, width: 250, height: 250, href: "/game" },
   { key: "girl", label: "Hobby", src: girl, width: 150, height: 150, href: "/hobby" },
