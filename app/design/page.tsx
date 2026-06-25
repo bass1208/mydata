@@ -3,12 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 
+import slide01 from "/public/img/design_01.jpg";
+import slide02 from "/public/img/design_02.jpg";
+import slide03 from "/public/img/design_03.jpg";
+import slide04 from "/public/img/design_04.jpg";
 
 const slides = [
-  { src: "/img/design/design_01.jpg", title: "Project 01" },
-  { src: "/img/design/design_02.jpg", title: "Project 02" },
-  { src: "/img/design/design_03.jpg", title: "Project 03" },
-  { src: "/img/design/design_04.jpg", title: "Project 04" },
+  { src: "/public/img/design/design_01.jpg", title: "Project 01" },
+  { src: "/public/img/design/design_02.jpg", title: "Project 02" },
+  { src: "/public/img/design/design_03.jpg", title: "Project 03" },
+  { src: "/public/img/design/design_04.jpg", title: "Project 04" },
 ];
 
 export default function DesignPage() {
