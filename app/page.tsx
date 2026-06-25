@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,7 +22,7 @@ const items = [
     href: "/game",
   },
   {
-    key: "img_mclane",
+    key: "girl",
     label: "Hobby",
     src: girl,
     width: 150,
@@ -41,38 +40,8 @@ const items = [
 ];
 
 export default function Home() {
-  const [activeIndex, setActiveIndex] = useState(1);
-const [dragStartX, setDragStartX] = useState<number | null>(null);
-const rotateNext = () => {
-  setActiveIndex((prev) => (prev + 1) % items.length);
-};
+  const activeIndex = 1;
 
-const rotatePrev = () => {
-  setActiveIndex((prev) =>
-    prev === 0 ? items.length - 1 : prev - 1
-  );
-};
-const handlePointerDown = (
-  e: React.PointerEvent<HTMLDivElement>
-) => {
-  setDragStartX(e.clientX);
-};
-
-const handlePointerUp = (
-  e: React.PointerEvent<HTMLDivElement>
-) => {
-  if (dragStartX === null) return;
-
-  const diff = e.clientX - dragStartX;
-
-  if (diff > 50) {
-    rotatePrev();
-  } else if (diff < -50) {
-    rotateNext();
-  }
-
-  setDragStartX(null);
-};
   const getPosition = (index: number) => {
     const total = items.length;
     const diff = (index - activeIndex + total) % total;
@@ -119,8 +88,7 @@ const handlePointerUp = (
         />
       </div>
 
-      {/* Carousel */}
-
+      {/* Center Links */}
       <div
         className="
           absolute inset-0 flex items-center justify-center
@@ -128,34 +96,21 @@ const handlePointerUp = (
           md:-translate-y-[20px]
         "
       >
-<div
-  className="
-    relative
-    w-[100vw] max-w-[760px]
-    h-[320px]
-    md:h-[420px]
-    touch-pan-y
-  "
-  onPointerDown={handlePointerDown}
-  onPointerUp={handlePointerUp}
->
+        <div
+          className="
+            relative
+            w-[100vw] max-w-[760px]
+            h-[320px]
+            md:h-[420px]
+          "
+        >
           {items.map((item, index) => {
             const pos = getPosition(index);
 
             return (
-        <Link
-  key={item.key}
-  href={item.href}
-  className="absolute left-1/2 top-1/2 flex flex-col items-center transition-all duration-700 ease-in-out cursor-pointer"
-  style={{
-    transform: `
-      translate(-50%, -50%)
-      translate3d(${pos.x}px, ${pos.y}px, 0)
-      scale(${pos.scale})
-    `,
-    zIndex: pos.zIndex,
-    opacity: pos.opacity,
-  }}
+              <Link
+                key={item.key}
+                href={item.href}
                 className="
                   absolute left-1/2 top-1/2
                   flex flex-col items-center
@@ -221,7 +176,13 @@ const handlePointerUp = (
             className="icon-link float-up"
             onClick={(e) => e.currentTarget.blur()}
           >
-            <Image src={iconInsta} alt="Instagram" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
+            <Image
+              src={iconInsta}
+              alt="Instagram"
+              width={50}
+              height={50}
+              className="w-[40px] md:w-[50px] h-auto"
+            />
           </a>
 
           <a
@@ -231,7 +192,13 @@ const handlePointerUp = (
             className="icon-link float-down"
             onClick={(e) => e.currentTarget.blur()}
           >
-            <Image src={iconPint} alt="Pinterest" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
+            <Image
+              src={iconPint}
+              alt="Pinterest"
+              width={50}
+              height={50}
+              className="w-[40px] md:w-[50px] h-auto"
+            />
           </a>
 
           <a
@@ -241,7 +208,13 @@ const handlePointerUp = (
             className="icon-link float-up"
             onClick={(e) => e.currentTarget.blur()}
           >
-            <Image src={iconX} alt="X" width={50} height={50} className="w-[40px] md:w-[50px] h-auto" />
+            <Image
+              src={iconX}
+              alt="X"
+              width={50}
+              height={50}
+              className="w-[40px] md:w-[50px] h-auto"
+            />
           </a>
         </div>
 
