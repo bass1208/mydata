@@ -6,20 +6,7 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-@keyframes blinkCursor {
-  0%,50%{
-    opacity:1;
-  }
-  51%,100%{
-    opacity:0;
-  }
-}
 
-.enter-cursor::after{
-  content:"▌";
-  margin-left:2px;
-  animation:blinkCursor .8s infinite;
-}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
