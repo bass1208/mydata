@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, type PointerEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -23,6 +23,65 @@ export default function Home() {
   const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(1);
 
+  const startXRef = useRef(0);
+  const isDraggingRef = useRef(false);
+  const hasDraggedRef = useRef(false);
+
+  const rotateNext = () => {
+    setActiveIndex((prev) => (prev + 1) % items.length);
+  };
+
+  const rotatePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  };
+
+  const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    startXRef.current = e.clientX;
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) return;
+
+    const diff = e.clientX - startXRef.current;
+
+    if (Math.abs(diff) > 8) {
+      hasDraggedRef.current = true;
+    }
+  };
+
+  const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) return;
+
+    const diff = e.clientX - startXRef.current;
+
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) {
+        rotateNext();
+      } else {
+        rotatePrev();
+      }
+    }
+
+    isDraggingRef.current = false;
+  };
+
+  const handleItemClick = (index: number) => {
+    if (hasDraggedRef.current) {
+      hasDraggedRef.current = false;
+      return;
+    }
+
+    if (index === activeIndex) {
+      router.push(items[index].href);
+      return;
+    }
+
+    setActiveIndex(index);
+  };
+
   const getPosition = (index: number) => {
     const total = items.length;
     const diff = (index - activeIndex + total) % total;
@@ -39,15 +98,6 @@ export default function Home() {
       zIndex: isCenter ? 30 : 20,
       opacity: isCenter ? 1 : 0.6,
     };
-  };
-
-  const handleItemClick = (index: number) => {
-    if (index === activeIndex) {
-      router.push(items[index].href);
-      return;
-    }
-
-    setActiveIndex(index);
   };
 
   return (
@@ -67,7 +117,13 @@ export default function Home() {
       </div>
 
       <div className="absolute inset-0 flex items-center justify-center -translate-y-[40px] md:-translate-y-[20px]">
-        <div className="relative w-[100vw] max-w-[760px] h-[320px] md:h-[420px]">
+        <div
+          className="relative w-[100vw] max-w-[760px] h-[320px] md:h-[420px] touch-pan-y select-none"
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+        >
           {items.map((item, index) => {
             const pos = getPosition(index);
             const isCenter = index === activeIndex;
@@ -77,12 +133,7 @@ export default function Home() {
                 key={item.key}
                 type="button"
                 onClick={() => handleItemClick(index)}
-                className={`
-                  group absolute left-1/2 top-1/2
-                  flex flex-col items-center
-                  transition-all duration-700 ease-in-out
-                  ${isCenter ? "cursor-pointer" : "cursor-pointer"}
-                `}
+                className="group absolute left-1/2 top-1/2 flex flex-col items-center transition-all duration-700 ease-in-out cursor-pointer"
                 style={{
                   transform: `
                     translate(-50%, -50%)
@@ -109,6 +160,7 @@ export default function Home() {
                     width={item.width}
                     height={item.height}
                     priority={isCenter}
+                    draggable={false}
                     className="pointer-events-none select-none w-[150px] h-auto md:w-[250px]"
                   />
                 </div>
