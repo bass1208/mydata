@@ -113,24 +113,42 @@ export default function Home() {
                   />
 
                   {isCenter && (
-                    <span
-                      className="
-                        absolute left-1/2 top-1/2
-                        -translate-x-1/2 -translate-y-1/2
-                        opacity-0 group-hover:opacity-100
-                        transition-opacity duration-300
-                        text-[12px] md:text-[14px]
-                        tracking-[0.2em]
-                        text-black
-                        bg-white/70
-                        px-4 py-2
-                        rounded-full
-                        whitespace-nowrap
-                        pointer-events-none
-                      "
-                    >
-                      VIEW PROJECT
-                    </span>
+                  <span
+  className="
+    absolute
+    left-1/2
+    -top-10
+    -translate-x-1/2
+
+    opacity-0
+    group-hover:opacity-100
+    transition-all
+    duration-300
+
+    group-hover:-translate-y-2
+
+    whitespace-nowrap
+    pointer-events-none
+
+    text-[10px]
+    md:text-[11px]
+    font-semibold
+    tracking-[0.15em]
+
+    text-black
+    bg-white/90
+
+    border-2
+    border-black
+
+    rounded-full
+
+    px-3
+    py-1
+  "
+>
+  VIEW PROJECT
+</span>
                   )}
                 </div>
 
