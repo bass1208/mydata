@@ -42,47 +42,47 @@ export default function Home() {
     e.currentTarget.setPointerCapture(e.pointerId);
   };
 
-const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
-  if (!isDraggingRef.current) return;
-};
+  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) return;
 
-const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
-  if (!isDraggingRef.current) return;
+    const diff = e.clientX - startXRef.current;
 
-  const diff = e.clientX - startXRef.current;
-
-  if (Math.abs(diff) > 50) {
-    shouldBlockClickRef.current = true;
-
-    if (diff < 0) {
-      rotatePrev();
-    } else {
-      rotateNext();
+    if (Math.abs(diff) > 8) {
+  
     }
+  };
+
+  const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) return;
+
+    const diff = e.clientX - startXRef.current;
+
+ if (Math.abs(diff) > 70) {
+  if (diff < 0) {
+    // 왼쪽으로 드래그 → 왼쪽으로 회전
+    rotatePrev();
   } else {
-    shouldBlockClickRef.current = false;
+    // 오른쪽으로 드래그 → 오른쪽으로 회전
+    rotateNext();
   }
+}
 
-  isDraggingRef.current = false;
+    isDraggingRef.current = false;
+  };
 
-  try {
-    e.currentTarget.releasePointerCapture(e.pointerId);
-  } catch {}
-};
+  const handleItemClick = (index: number) => {
+    if (hasDraggedRef.current) {
+      hasDraggedRef.current = false;
+      return;
+    }
 
-const handleItemClick = (index: number) => {
-  if (shouldBlockClickRef.current) {
-    shouldBlockClickRef.current = false;
-    return;
-  }
+    if (index === activeIndex) {
+      router.push(items[index].href);
+      return;
+    }
 
-  if (index === activeIndex) {
-    router.push(items[index].href);
-    return;
-  }
-
-  setActiveIndex(index);
-};
+    setActiveIndex(index);
+  };
 
   const getPosition = (index: number) => {
     const total = items.length;
