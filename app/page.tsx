@@ -35,54 +35,58 @@ export default function Home() {
     setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
   };
 
-  const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
-    startXRef.current = e.clientX;
-    isDraggingRef.current = true;
-    hasDraggedRef.current = false;
-    e.currentTarget.setPointerCapture(e.pointerId);
-  };
+ const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
+  startXRef.current = e.clientX;
+  isDraggingRef.current = true;
+  shouldBlockClickRef.current = false;
 
-  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (!isDraggingRef.current) return;
+  e.currentTarget.setPointerCapture(e.pointerId);
+};
 
-    const diff = e.clientX - startXRef.current;
-
-    if (Math.abs(diff) > 8) {
-  
-    }
-  };
+const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
+  if (!isDraggingRef.current) return;
+};
 
   const handlePointerUp = (e: PointerEvent<HTMLDivElement>) => {
-    if (!isDraggingRef.current) return;
+  if (!isDraggingRef.current) return;
 
-    const diff = e.clientX - startXRef.current;
+  const diff = e.clientX - startXRef.current;
 
- if (Math.abs(diff) > 70) {
-  if (diff < 0) {
-    // 왼쪽으로 드래그 → 왼쪽으로 회전
-    rotatePrev();
-  } else {
-    // 오른쪽으로 드래그 → 오른쪽으로 회전
-    rotateNext();
+  if (Math.abs(diff) > 70) {
+    shouldBlockClickRef.current = true;
+
+    if (diff < 0) {
+      // 왼쪽으로 드래그 → 왼쪽으로 회전
+      rotatePrev();
+    } else {
+      // 오른쪽으로 드래그 → 오른쪽으로 회전
+      rotateNext();
+    }
   }
-}
 
-    isDraggingRef.current = false;
-  };
+  isDraggingRef.current = false;
 
-  const handleItemClick = (index: number) => {
-    if (hasDraggedRef.current) {
-      hasDraggedRef.current = false;
-      return;
-    }
+  try {
+    e.currentTarget.releasePointerCapture(e.pointerId);
+  } catch {}
+};
 
-    if (index === activeIndex) {
-      router.push(items[index].href);
-      return;
-    }
+const handleItemClick = (index: number) => {
+  // 드래그 직후 발생하는 click 무시
+  if (shouldBlockClickRef.current) {
+    shouldBlockClickRef.current = false;
+    return;
+  }
 
-    setActiveIndex(index);
-  };
+  // 가운데 이미지 → 페이지 이동
+  if (index === activeIndex) {
+    router.push(items[index].href);
+    return;
+  }
+
+  // 좌우 이미지 → 가운데로 이동
+  setActiveIndex(index);
+};
 
   const getPosition = (index: number) => {
     const total = items.length;
