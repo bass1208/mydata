@@ -12,7 +12,7 @@ import imgGb from "/public/img/img_gb.png";
 import iconInsta from "/public/icon/icon_insta.png";
 import iconPint from "/public/icon/icon_pint.png";
 import iconX from "/public/icon/icon_x.png";
-
+cursor: url('/cursor.cur'), pointer;
 const items = [
   { key: "gb", label: "Game", src: imgGb, width: 250, height: 250, href: "/game" },
   { key: "girl", label: "Hobby", src: girl, width: 150, height: 150, href: "/hobby" },
@@ -111,27 +111,6 @@ export default function Home() {
                     priority={isCenter}
                     className="pointer-events-none select-none w-[150px] h-auto md:w-[250px]"
                   />
-
-                  {isCenter && (
-                    <span
-                      className="
-                        absolute left-1/2 top-1/2
-                        -translate-x-1/2 -translate-y-1/2
-                        opacity-0 group-hover:opacity-100
-                        transition-opacity duration-300
-                        text-[12px] md:text-[14px]
-                        tracking-[0.2em]
-                        text-black
-                        bg-white/70
-                        px-4 py-2
-                        rounded-full
-                        whitespace-nowrap
-                        pointer-events-none
-                      "
-                    >
-                      VIEW PROJECT
-                    </span>
-                  )}
                 </div>
 
                 <p className="mt-[8px] text-center text-black text-[13px] md:text-[16px]">
