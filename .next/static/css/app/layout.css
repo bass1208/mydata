@@ -1745,6 +1745,10 @@ body {
     width: 99px;
   }
 
+  .md\:w-\[146px\] {
+    width: 146px;
+  }
+
   .md\:max-w-\[1320px\] {
     max-width: 1320px;
   }

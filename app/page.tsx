@@ -26,7 +26,7 @@ const layout = {
   gameboy:
     "left-[2%] bottom-[32%] w-[82px] " +
     "sm:left-[5%] sm:bottom-[31%] sm:w-[105px] " +
-    "md:left-[7%] md:bottom-[28%] md:w-[145px] " +
+    "md:left-[7%] md:bottom-[28%] md:w-[146px] " +
     "lg:left-[10%] lg:bottom-[25%] lg:w-[190px] " +
     "xl:left-[13%] xl:bottom-[24%] xl:w-[240px]",
 
