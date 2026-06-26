@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-const textPosition = {
-  text1: "bottom-[18%] left-[19%]",
-  text2: "right-[22%] top-[27%]",
-  text3: "left-[30%] top-[24%]",
+const layout = {
+  girl: "bottom-[-60px]",
+  ring: "top-[44%]",
+  heart: "left-[8%] top-[20%]",
+  gameboy: "left-[15%] bottom-[22%]",
+  cassette: "right-[15%] bottom-[18%]",
+  text1: "left-[8vw] bottom-[14vh]",
+  text2: "right-[8vw] top-[12vh]",
+  text3: "left-[34vw] top-[22vh]",
 };
 export default function Home() {
   return (
@@ -49,8 +54,6 @@ export default function Home() {
     </div>
   </div>
 </header>
-
-  
       {/* Halo Ring */}
 <div
   className="
@@ -77,16 +80,9 @@ export default function Home() {
 </div>
 
       {/* Main Girl */}
-      <div className="absolute bottom-0 left-1/2 z-30 w-[72vw] max-w-[760px] -translate-x-1/2 md:w-[42vw]">
-        <Image
-          src="/images/img_girl_main.png"
-          alt="main visual"
-          width={900}
-          height={1200}
-          priority
-          className="h-auto w-full"
-        />
-      </div>
+<div
+  className={`absolute ${heroPosition.girl} left-1/2 z-30 w-[72vw] max-w-[760px] -translate-x-1/2 md:w-[42vw]`}
+>
 
       {/* Floating Icons */}
       <div className="float-slow absolute left-[7%] top-[21%] z-40 w-[120px] md:w-[220px]">
