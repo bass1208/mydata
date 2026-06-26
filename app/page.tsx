@@ -11,7 +11,7 @@ const layout = {
   cassette:
     "right-[5%] bottom-[30%] w-[58px] md:right-[15%] md:bottom-[20%] md:w-[130px]",
   rings:
-    "right-[4%] top-[18%] w-[70px] md:right-[8%] md:top-[12%] md:w-[150px]",
+    "right-[4%] top-[18%] w-[70px] md:right-[28%] md:top-[12%] md:w-[150px]",
   silverHeart:
     "right-[24%] top-[15%] w-[64px] md:right-[28%] md:top-[11%] md:w-[130px]",
 
@@ -99,19 +99,19 @@ export default function Home() {
 
       {/* Floating Icons */}
       <div className={`float-slow absolute ${layout.heart} z-40`}>
-        <Image src="/images/img_mheart.png" alt="" width={300} height={300} />
+        <Image src="/images/img_mheart.png" alt="" width={330} height={330} />
       </div>
 
       <div className={`float-fast absolute ${layout.gameboy} z-40`}>
-        <Image src="/images/img_gb.png" alt="" width={260} height={260} />
+        <Image src="/images/img_gb.png" alt="" width={320} height={320} />
       </div>
 
       <div className={`float-rotate absolute ${layout.cassette} z-40`}>
         <Image
           src="/images/img_t1982_cp_retro.png"
           alt=""
-          width={260}
-          height={300}
+          width={280}
+          height={320}
         />
       </div>
 
@@ -128,8 +128,8 @@ export default function Home() {
         <Image
           src="/images/img_silver_heart.png"
           alt=""
-          width={220}
-          height={220}
+          width={260}
+          height={260}
         />
       </div>
 
