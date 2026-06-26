@@ -218,12 +218,6 @@ body {
             border-color: transparent;
           }
         }
-
-        @media (max-width: 768px) {
-          .type-text {
-            display: none;
-          }
-        }
         .sns-icon {
   width: 42px;
   height: 42px;
