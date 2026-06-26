@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const layout = {
   girl:
-    "top-[31%] w-[88vw] max-w-[430px] " +
+    "top-[22%] w-[90vw] max-w-[430px] " +
     "sm:top-[29%] sm:w-[78vw] sm:max-w-[520px] " +
     "md:top-[24%] md:w-[58vw] md:max-w-[620px] " +
     "lg:top-[20%] lg:w-[46vw] lg:max-w-[720px] " +
-    "xl:top-[18%] xl:w-[42vw] xl:max-w-[760px]",
+    "xl:top-[20%] xl:w-[42vw] xl:max-w-[760px]",
 
   ring:
     "top-[50%] w-[125vw] " +
@@ -20,14 +20,14 @@ const layout = {
     "left-[2%] top-[19%] w-[88px] " +
     "sm:left-[4%] sm:top-[19%] sm:w-[110px] " +
     "md:left-[5%] md:top-[18%] md:w-[150px] " +
-    "lg:left-[6%] lg:top-[20%] lg:w-[190px] " +
-    "xl:left-[7%] xl:top-[21%] xl:w-[220px]",
+    "lg:left-[6%] lg:top-[10%] lg:w-[190px] " +
+    "xl:left-[7%] xl:top-[18%] xl:w-[250px]",
 
   gameboy:
     "left-[2%] bottom-[32%] w-[108px] " +
     "sm:left-[5%] sm:bottom-[28%] sm:w-[100px] " +
     "md:left-[7%] md:bottom-[28%] md:w-[120px] " +
-    "lg:left-[10%] lg:bottom-[28%] lg:w-[130px] " +
+    "lg:left-[10%] lg:bottom-[28%] lg:w-[160px] " +
     "xl:left-[13%] xl:bottom-[30%] xl:w-[220px]",
 
   cassette:
@@ -45,25 +45,25 @@ const layout = {
     "xl:right-[8%] xl:top-[12%] xl:w-[150px]",
 
   silverHeart:
-    "left-[30%] top-[16%] w-[70px] " +
+    "left-[30%] top-[10%] w-[70px] " +
     "sm:right-[25%] sm:top-[15%] sm:w-[72px] " +
     "md:left-[28%] md:top-[13%] md:w-[125px] " +
-    "lg:left-[24%] lg:top-[12%] lg:w-[115px] " +
-    "xl:left-[20%] xl:top-[11%] xl:w-[130px]",
+    "lg:left-[32%] lg:top-[12%] lg:w-[115px] " +
+    "xl:left-[40%] xl:top-[8%] xl:w-[150px]",
 
   glitter1:
     "left-[16%] top-[10%] w-[42px] " +
     "sm:left-[18%] sm:top-[11%] sm:w-[50px] " +
     "md:left-[17%] md:top-[10%] md:w-[70px] " +
     "lg:left-[17%] lg:top-[19%] lg:w-[90px] " +
-    "xl:left-[17%] xl:top-[22%] xl:w-[110px]",
+    "xl:left-[22%] xl:top-[30%] xl:w-[110px]",
 
   glitter2:
-    "right-[34%] top-[21%] w-[38px] " +
+    "right-[34%] top-[18%] w-[38px] " +
     "sm:right-[35%] sm:top-[20%] sm:w-[45px] " +
     "md:right-[38%] md:top-[20%] md:w-[55px] " +
-    "lg:right-[33%] lg:top-[12%] lg:w-[62px] " +
-    "xl:right-[32%] xl:top-[10%] xl:w-[70px]",
+    "lg:right-[36%] lg:top-[12%] lg:w-[62px] " +
+    "xl:right-[32%] xl:top-[8%] xl:w-[70px]",
 
   text1:
     "left-[5%] bottom-[17%] max-w-[210px] text-[9px] " +
@@ -80,7 +80,7 @@ const layout = {
     "xl:right-[22%] xl:top-[17%] xl:max-w-[260px]",
 
   text3:
-    "left-[22%] top-[28%] max-w-[120px] text-[9px] " +
+    "left-[12%] top-[28%] max-w-[120px] text-[9px] " +
     "sm:left-[24%] sm:top-[28%] sm:max-w-[130px] sm:text-[10px] " +
     "md:left-[20%] md:top-[27%] md:max-w-[150px] md:text-[11px] " +
     "lg:left-[28%] lg:top-[25%] lg:max-w-[170px] lg:text-xs " +
