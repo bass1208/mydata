@@ -5,27 +5,27 @@ const layout = {
   girl: "top-[28%] md:top-[18%]",
   ring: "top-[52%] md:top-[55%]",
 
-  heart: "left-[5%] top-[20%] w-[88px] md:left-[57%] md:top-[21%] md:w-[220px]",
+  heart: "left-[5%] top-[20%] w-[120px] md:left-[7%] md:top-[21%] md:w-[220px]",
   gameboy:
-    "left-[6%] bottom-[30%] w-[58px] md:left-[13%] md:bottom-[24%] md:w-[140px]",
+    "left-[3%] bottom-[28%] w-[120px] md:left-[13%] md:bottom-[24%] md:w-[240px]",
   cassette:
-    "right-[5%] bottom-[30%] w-[58px] md:right-[15%] md:bottom-[20%] md:w-[130px]",
+    "right-[5%] bottom-[30%] w-[80px] md:right-[15%] md:bottom-[30%] md:w-[230px]",
   rings:
-    "right-[4%] top-[18%] w-[70px] md:right-[18%] md:top-[12%] md:w-[150px]",
+    "right-[4%] top-[25%] w-[70px] md:right-[8%] md:top-[12%] md:w-[150px]",
   silverHeart:
-    "right-[24%] top-[15%] w-[64px] md:right-[28%] md:top-[11%] md:w-[130px]",
+    "right-[24%] top-[15%] w-[64px] md:left-[20%] md:top-[11%] md:w-[130px]",
 
   glitter1:
-    "left-[18%] top-[14%] w-[46px] md:left-[17%] md:top-[12%] md:w-[110px]",
+    "left-[18%] top-[10%] w-[46px] md:left-[17%] md:top-[22%] md:w-[110px]",
   glitter2:
-    "right-[35%] top-[14%] w-[42px] md:right-[32%] md:top-[10%] md:w-[70px]",
+    "right-[35%] top-[22%] w-[42px] md:right-[32%] md:top-[10%] md:w-[70px]",
 
   text1:
-    "left-[6%] bottom-[17%] max-w-[210px] text-[10px] md:left-[19%] md:bottom-[18%] md:max-w-[420px] md:text-xs",
+    "left-[6%] bottom-[15%] max-w-[210px] text-[10px] md:left-[19%] md:bottom-[18%] md:max-w-[420px] md:text-xs",
   text2:
-    "right-[5%] top-[14%] max-w-[160px] text-[10px] md:right-[22%] md:top-[17%] md:max-w-[260px] md:text-xs",
+    "right-[5%] top-[10%] max-w-[160px] text-[10px] md:right-[22%] md:top-[17%] md:max-w-[260px] md:text-xs",
   text3:
-    "left-[33%] top-[25%] max-w-[120px] text-[10px] md:left-[30%] md:top-[24%] md:max-w-[180px] md:text-xs",
+    "left-[15%] top-[28%] max-w-[120px] text-[10px] md:left-[30%] md:top-[24%] md:max-w-[180px] md:text-xs",
 };
 
 export default function Home() {
@@ -129,7 +129,7 @@ export default function Home() {
           src="/images/img_silver_heart.png"
           alt=""
           width={260}
-          height={260}
+          height={220}
         />
       </div>
 
