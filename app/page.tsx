@@ -14,7 +14,7 @@ const layout = {
     "sm:top-[50%] sm:w-[118vw] " +
     "md:top-[52%] md:w-[98vw] " +
     "lg:top-[53%] lg:w-[84vw] " +
-    "xl:top-[55%] xl:w-[76vw]",
+    "xl:top-[65%] xl:w-[76vw]",
 
   heart:
     "left-[2%] top-[19%] w-[88px] " +
