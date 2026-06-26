@@ -1,3 +1,7 @@
-export default function Web-DesignPage() {
-  return <main className="min-h-screen bg-black text-white p-10">WEB DESIGN</main>;
+export default function WebDesignPage() {
+  return (
+    <main className="min-h-screen bg-black p-10 text-white">
+      WEB DESIGN
+    </main>
+  );
 }
