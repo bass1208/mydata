@@ -103,15 +103,15 @@ export default function Home() {
       </div>
 
       <div className={`float-fast absolute ${layout.gameboy} z-40`}>
-        <Image src="/images/img_gb.png" alt="" width={220} height={220} />
+        <Image src="/images/img_gb.png" alt="" width={260} height={260} />
       </div>
 
       <div className={`float-rotate absolute ${layout.cassette} z-40`}>
         <Image
           src="/images/img_t1982_cp_retro.png"
           alt=""
-          width={220}
-          height={260}
+          width={260}
+          height={300}
         />
       </div>
 
