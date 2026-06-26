@@ -2,30 +2,89 @@ import Image from "next/image";
 import Link from "next/link";
 
 const layout = {
-  girl: "top-[28%] md:top-[18%]",
-  ring: "top-[52%] md:top-[55%]",
+  girl:
+    "top-[31%] w-[88vw] max-w-[430px] " +
+    "sm:top-[29%] sm:w-[78vw] sm:max-w-[520px] " +
+    "md:top-[24%] md:w-[58vw] md:max-w-[620px] " +
+    "lg:top-[20%] lg:w-[46vw] lg:max-w-[720px] " +
+    "xl:top-[18%] xl:w-[42vw] xl:max-w-[760px]",
 
-  heart: "left-[5%] top-[20%] w-[120px] md:left-[7%] md:top-[21%] md:w-[220px]",
+  ring:
+    "top-[50%] w-[125vw] " +
+    "sm:top-[50%] sm:w-[118vw] " +
+    "md:top-[52%] md:w-[98vw] " +
+    "lg:top-[53%] lg:w-[84vw] " +
+    "xl:top-[55%] xl:w-[76vw]",
+
+  heart:
+    "left-[2%] top-[19%] w-[88px] " +
+    "sm:left-[4%] sm:top-[19%] sm:w-[110px] " +
+    "md:left-[5%] md:top-[18%] md:w-[150px] " +
+    "lg:left-[6%] lg:top-[20%] lg:w-[190px] " +
+    "xl:left-[7%] xl:top-[21%] xl:w-[220px]",
+
   gameboy:
-    "left-[3%] bottom-[28%] w-[120px] md:left-[13%] md:bottom-[24%] md:w-[240px]",
+    "left-[2%] bottom-[32%] w-[82px] " +
+    "sm:left-[5%] sm:bottom-[31%] sm:w-[105px] " +
+    "md:left-[7%] md:bottom-[28%] md:w-[145px] " +
+    "lg:left-[10%] lg:bottom-[25%] lg:w-[190px] " +
+    "xl:left-[13%] xl:bottom-[24%] xl:w-[240px]",
+
   cassette:
-    "right-[5%] bottom-[30%] w-[80px] md:right-[15%] md:bottom-[30%] md:w-[230px]",
+    "right-[3%] bottom-[31%] w-[68px] " +
+    "sm:right-[4%] sm:bottom-[30%] sm:w-[85px] " +
+    "md:right-[7%] md:bottom-[28%] md:w-[120px] " +
+    "lg:right-[11%] lg:bottom-[28%] lg:w-[180px] " +
+    "xl:right-[15%] xl:bottom-[30%] xl:w-[230px]",
+
   rings:
-    "right-[4%] top-[25%] w-[70px] md:right-[8%] md:top-[12%] md:w-[150px]",
+    "right-[3%] top-[20%] w-[62px] " +
+    "sm:right-[4%] sm:top-[19%] sm:w-[76px] " +
+    "md:right-[5%] md:top-[25%] md:w-[100px] " +
+    "lg:right-[7%] lg:top-[13%] lg:w-[125px] " +
+    "xl:right-[8%] xl:top-[12%] xl:w-[150px]",
+
   silverHeart:
-    "right-[24%] top-[15%] w-[64px] md:left-[20%] md:top-[11%] md:w-[130px]",
+    "right-[22%] top-[16%] w-[58px] " +
+    "sm:right-[25%] sm:top-[15%] sm:w-[72px] " +
+    "md:left-[28%] md:top-[13%] md:w-[125px] " +
+    "lg:left-[24%] lg:top-[12%] lg:w-[115px] " +
+    "xl:left-[20%] xl:top-[11%] xl:w-[130px]",
 
   glitter1:
-    "left-[18%] top-[10%] w-[46px] md:left-[17%] md:top-[22%] md:w-[110px]",
+    "left-[16%] top-[10%] w-[42px] " +
+    "sm:left-[18%] sm:top-[11%] sm:w-[50px] " +
+    "md:left-[17%] md:top-[10%] md:w-[70px] " +
+    "lg:left-[17%] lg:top-[19%] lg:w-[90px] " +
+    "xl:left-[17%] xl:top-[22%] xl:w-[110px]",
+
   glitter2:
-    "right-[35%] top-[22%] w-[42px] md:right-[32%] md:top-[10%] md:w-[70px]",
+    "right-[34%] top-[21%] w-[38px] " +
+    "sm:right-[35%] sm:top-[20%] sm:w-[45px] " +
+    "md:right-[38%] md:top-[20%] md:w-[55px] " +
+    "lg:right-[33%] lg:top-[12%] lg:w-[62px] " +
+    "xl:right-[32%] xl:top-[10%] xl:w-[70px]",
 
   text1:
-    "left-[6%] bottom-[15%] max-w-[210px] text-[10px] md:left-[19%] md:bottom-[18%] md:max-w-[420px] md:text-xs",
+    "left-[5%] bottom-[17%] max-w-[210px] text-[9px] " +
+    "sm:left-[6%] sm:bottom-[16%] sm:max-w-[250px] sm:text-[10px] " +
+    "md:left-[8%] md:bottom-[19%] md:max-w-[320px] md:text-[11px] " +
+    "lg:left-[13%] lg:bottom-[18%] lg:max-w-[380px] lg:text-xs " +
+    "xl:left-[19%] xl:bottom-[18%] xl:max-w-[420px]",
+
   text2:
-    "right-[5%] top-[10%] max-w-[160px] text-[10px] md:right-[22%] md:top-[17%] md:max-w-[260px] md:text-xs",
+    "right-[4%] top-[11%] max-w-[150px] text-[9px] " +
+    "sm:right-[5%] sm:top-[11%] sm:max-w-[170px] sm:text-[10px] " +
+    "md:right-[8%] md:top-[14%] md:max-w-[220px] md:text-[11px] " +
+    "lg:right-[14%] lg:top-[15%] lg:max-w-[240px] lg:text-xs " +
+    "xl:right-[22%] xl:top-[17%] xl:max-w-[260px]",
+
   text3:
-    "left-[15%] top-[28%] max-w-[120px] text-[10px] md:left-[30%] md:top-[24%] md:max-w-[180px] md:text-xs",
+    "left-[22%] top-[28%] max-w-[120px] text-[9px] " +
+    "sm:left-[24%] sm:top-[28%] sm:max-w-[130px] sm:text-[10px] " +
+    "md:left-[20%] md:top-[27%] md:max-w-[150px] md:text-[11px] " +
+    "lg:left-[28%] lg:top-[25%] lg:max-w-[170px] lg:text-xs " +
+    "xl:left-[30%] xl:top-[24%] xl:max-w-[180px]",
 };
 
 export default function Home() {
@@ -41,7 +100,7 @@ export default function Home() {
 
       {/* Header */}
       <header className="absolute left-0 top-0 z-[100] w-full border-b border-white/80">
-        <div className="relative mx-auto flex h-[52px] w-full items-center justify-between px-5 text-white md:h-[58px] md:px-[38px]">
+      <div className="relative mx-auto flex h-[52px] w-full max-w-[1920px] items-center justify-between px-5 text-white sm:px-6 md:h-[58px] md:px-8 lg:px-[38px]">
           <div className="w-[130px] text-[10px] font-medium leading-[1.08] tracking-[0.02em] md:w-[260px] md:text-[14px]">
             <p>DIGITAL DREAMS</p>
             <p>ANALOG HEART</p>
@@ -71,7 +130,7 @@ export default function Home() {
 
       {/* Halo Ring */}
       <div
-        className={`absolute left-1/2 ${layout.ring} z-10 w-[115vw] max-w-none -translate-x-1/2 -translate-y-1/2 select-none md:w-[76vw] md:max-w-[1320px]`}
+        className={`absolute left-1/2 ${layout.ring} z-10 max-w-[1320px] -translate-x-1/2 -translate-y-1/2 select-none`}
       >
         <Image
           src="/images/wt_ring.png"
@@ -85,7 +144,7 @@ export default function Home() {
 
       {/* Main Girl */}
       <div
-        className={`absolute ${layout.girl} left-1/2 z-30 w-[86vw] max-w-[520px] -translate-x-1/2 md:w-[42vw] md:max-w-[760px]`}
+       className={`absolute ${layout.girl} left-1/2 z-30 -translate-x-1/2`}
       >
         <Image
           src="/images/img_girl_main.png"
@@ -178,7 +237,7 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="absolute bottom-[14%] right-[6%] z-50 md:bottom-[17%] md:right-[18%]">
+     <nav className="absolute bottom-[13%] right-[5%] z-50 sm:right-[6%] md:bottom-[16%] md:right-[8%] lg:right-[13%] xl:right-[18%]">
         <p className="mb-4 text-xs font-bold md:mb-6 md:text-sm">SIDE A</p>
 
         <div className="space-y-3 text-base font-bold md:space-y-4 md:text-2xl">
