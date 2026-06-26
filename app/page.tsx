@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import iconInsta from "/public/icon/icon_insta.png";
-import iconPint from "/public/icon/icon_pint.png";
-import iconX from "/public/icon/icon_x.png";
+
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -172,56 +170,55 @@ export default function Home() {
         <p className="mt-2">Korean Designer based in tokyo</p>
       </footer>
 {/* SNS Icons */}
-  <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center justify-end pb-[36px] md:pb-[140px]">
-        <div className="flex items-center justify-center gap-[34px] mb-[34px] md:gap-[60px] md:mb-[60px]">
-          <a
-            href="https://www.instagram.com/bass1208"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon-link float-up"
-            
-          >
-            <Image
-              src={iconInsta}
-              alt="Instagram"
-              width={50}
-              height={50}
-              className="w-[40px] md:w-[50px] h-auto"
-            />
-          </a>
+{/* SNS Icons */}
+<div className="absolute bottom-8 right-8 z-50 md:right-14 md:bottom-10">
+  <div className="flex items-center justify-center gap-[24px] md:gap-[34px]">
+    <a
+      href="https://www.instagram.com/bass1208"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="icon-link float-up"
+    >
+      <Image
+        src="/icon/icon_insta.png"
+        alt="Instagram"
+        width={50}
+        height={50}
+        className="h-auto w-[40px] md:w-[50px]"
+      />
+    </a>
 
-          <a
-            href="https://jp.pinterest.com/tiklej/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon-link float-down"
-           
-          >
-            <Image
-              src={iconPint}
-              alt="Pinterest"
-              width={50}
-              height={50}
-              className="w-[40px] md:w-[50px] h-auto"
-            />
-          </a>
+    <a
+      href="https://jp.pinterest.com/tiklej/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="icon-link float-down"
+    >
+      <Image
+        src="/icon/icon_pint.png"
+        alt="Pinterest"
+        width={50}
+        height={50}
+        className="h-auto w-[40px] md:w-[50px]"
+      />
+    </a>
 
-          <a
-            href="https://x.com/bass1208"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon-link float-up"
-           
-          >
-            <Image
-              src={iconX}
-              alt="X"
-              width={50}
-              height={50}
-              className="w-[40px] md:w-[50px] h-auto"
-            />
-          </a>
-        </div>
+    <a
+      href="https://x.com/bass1208"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="icon-link float-up"
+    >
+      <Image
+        src="/icon/icon_x.png"
+        alt="X"
+        width={50}
+        height={50}
+        className="h-auto w-[40px] md:w-[50px]"
+      />
+    </a>
+  </div>
+</div>
     </main>
   );
 }
