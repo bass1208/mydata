@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import slide01 from "/public/img/design_01.jpeg";
-import slide02 from "/public/img/design_02.jpeg";
-import slide03 from "/public/img/design_03.jpeg";
-import slide04 from "/public/img/design_04.jpeg";
+import slide01 from "/public/images/design_01.jpeg";
+import slide02 from "/public/images/design_02.jpeg";
+import slide03 from "/public/images/design_03.jpeg";
+import slide04 from "/public/images/design_04.jpeg";
 
 const slides = [
   { src: slide01, title: "Project 01" },
