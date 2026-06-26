@@ -12,8 +12,13 @@ const layout = {
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
-
-      {/* Header */}
+  <Image
+    src="/images/16-9.jpeg"
+    alt=""
+    fill
+    priority
+    className="object-cover"
+  />
 {/* Header */}
 <header className="absolute left-0 top-0 z-[100] w-full border-b border-white/80">
   <div className="relative mx-auto flex h-[52px] w-full items-center justify-between px-5 text-white md:h-[58px] md:px-[38px]">
@@ -48,18 +53,18 @@ export default function Home() {
 </header>
       {/* Halo Ring */}
 <div
-  className="
-    absolute
-    left-1/2
-    top-[44%]
-    z-10
-    w-[76vw]
-    max-w-[1320px]
-    -translate-x-1/2
-    -translate-y-1/2
-    pointer-events-none
-    select-none
-  "
+className={`
+  absolute
+  left-1/2
+  ${layout.ring}
+  z-10
+  w-[76vw]
+  max-w-[1320px]
+  -translate-x-1/2
+  -translate-y-1/2
+  pointer-events-none
+  select-none
+`}
 >
   <Image
     src="/images/wt_ring.png"
@@ -139,10 +144,9 @@ export default function Home() {
         />
       </div>
 
-      {/* Typewriter Texts */}
   {/* Typewriter Texts */}
 <div
-  className={`type-text type-1 absolute ${textPosition.text1} z-50 hidden max-w-[420px] whitespace-pre-line text-xs leading-relaxed md:block`}
+  className={`type-text type-1 absolute ${layout.text1} z-50 hidden max-w-[420px] whitespace-pre-line text-xs leading-relaxed md:block`}
 >
   My work goes beyond mere visual expression{"\n"}
   I aim to convey emotions and weave stories through my art.{"\n"}
@@ -151,7 +155,7 @@ export default function Home() {
 </div>
 
 <div
-  className={`type-text type-2 absolute ${textPosition.text2} z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block`}
+  className={`type-text type-2 absolute ${layout.text2} z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block`}
 >
   Born in the Digital Age.{"\n"}
   Inspired by Tokyo, 1989.{"\n"}
@@ -159,7 +163,7 @@ export default function Home() {
 </div>
 
 <div
-  className={`type-text type-3 absolute ${textPosition.text3} z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block`}
+  className={`type-text type-3 absolute ${layout.text3} z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block`}
 >
   Tokyo Nights.{"\n"}
   Neon Lights.{"\n"}
