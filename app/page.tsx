@@ -13,21 +13,38 @@ export default function Home() {
       />
 
       {/* Header */}
-      <header className="absolute left-0 top-0 z-50 flex w-full items-center justify-between border-b border-white/70 px-6 py-3 text-xs md:px-10">
-        <div className="leading-tight">
-          <p>DIGITAL DREAMS</p>
-          <p>ANALOG HEART</p>
-        </div>
+{/* Header */}
+<header className="absolute left-0 top-0 z-[100] w-full border-b border-white/80">
+  <div className="relative mx-auto flex h-[52px] w-full items-center justify-between px-5 text-white md:h-[58px] md:px-[38px]">
+    {/* Left */}
+    <div className="w-[130px] text-[10px] font-medium leading-[1.08] tracking-[0.02em] md:w-[260px] md:text-[14px]">
+      <p>DIGITAL DREAMS</p>
+      <p>ANALOG HEART</p>
+    </div>
 
-        <div className="rounded-full border border-white/80 px-16 py-2">
-          TIKLE1982
-        </div>
+    {/* Center Capsule */}
+    <div className="absolute left-1/2 top-1/2 flex h-[30px] w-[130px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/90 text-[10px] font-medium tracking-[0.04em] md:h-[38px] md:w-[230px] md:text-[14px]">
+      TIKLE1982
+    </div>
 
-        <div className="hidden items-center gap-5 md:flex">
-          <div className="h-8 w-24 bg-white/90" />
-          <p>2026 Tokyo Japan</p>
-        </div>
-      </header>
+    {/* Right */}
+    <div className="flex w-[130px] items-center justify-end gap-2 md:w-[260px] md:gap-[14px]">
+      <div className="relative h-[22px] w-[62px] md:h-[36px] md:w-[108px]">
+        <Image
+          src="/images/img_barcode.png"
+          alt="Barcode"
+          fill
+          priority
+          className="object-contain"
+        />
+      </div>
+
+      <p className="hidden whitespace-nowrap text-[14px] font-medium tracking-[0.02em] md:block">
+        2026 Tokyo Japan
+      </p>
+    </div>
+  </div>
+</header>
 
       {/* Halo */}
       <div className="absolute left-1/2 top-[43%] z-10 h-[9vw] w-[68vw] max-w-[1280px] -translate-x-1/2 rounded-full border-[10px] border-white md:border-[16px]" />
@@ -152,7 +169,38 @@ export default function Home() {
         <p>© TIKLE1982</p>
         <p className="mt-2">Korean Designer based in tokyo</p>
       </footer>
+{/* SNS Icons */}
+<div className="absolute bottom-8 right-8 z-50 flex items-center gap-6 md:right-14 md:bottom-10">
+  <a
+    href="https://www.instagram.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="sns-icon bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600"
+  >
+    <span className="text-white">◎</span>
+  </a>
 
+  <a
+    href="https://www.pinterest.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Pinterest"
+    className="sns-icon bg-red-600"
+  >
+    <span className="font-serif text-white">P</span>
+  </a>
+
+  <a
+    href="https://x.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="X"
+    className="sns-icon bg-neutral-900"
+  >
+    <span className="text-white">X</span>
+  </a>
+</div>
      
     </main>
   );

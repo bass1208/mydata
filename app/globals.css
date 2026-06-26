@@ -224,3 +224,28 @@ body {
             display: none;
           }
         }
+        .sns-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.sns-icon:hover {
+  transform: translateY(-6px) scale(1.08);
+  filter: brightness(1.15);
+}
+
+@media (max-width: 768px) {
+  .sns-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+}
