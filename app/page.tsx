@@ -24,11 +24,11 @@ const layout = {
     "xl:left-[7%] xl:top-[21%] xl:w-[220px]",
 
   gameboy:
-    "left-[2%] bottom-[32%] w-[68px] " +
-    "sm:left-[5%] sm:bottom-[28%] sm:w-[85px] " +
+    "left-[2%] bottom-[32%] w-[108px] " +
+    "sm:left-[5%] sm:bottom-[28%] sm:w-[100px] " +
     "md:left-[7%] md:bottom-[28%] md:w-[120px] " +
-    "lg:left-[10%] lg:bottom-[28%] lg:w-[120px] " +
-    "xl:left-[13%] xl:bottom-[30%] xl:w-[150px]",
+    "lg:left-[10%] lg:bottom-[28%] lg:w-[130px] " +
+    "xl:left-[13%] xl:bottom-[30%] xl:w-[220px]",
 
   cassette:
     "right-[3%] bottom-[31%] w-[68px] " +
