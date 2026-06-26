@@ -1,25 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
-
-const floatAnimation = {
-  y: [-12, 12, -12],
-  transition: {
-    duration: 6,
-    repeat: Infinity,
-    ease: "easeInOut",
-  },
-};
 
 export default function Home() {
   return (
-    <main className="relative h-screen overflow-hidden bg-black">
-
-      {/* Background */}
-
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
       <Image
         src="/images/16-9.jpeg"
         alt=""
@@ -28,217 +12,267 @@ export default function Home() {
         className="object-cover"
       />
 
-      {/* Girl */}
+      {/* Header */}
+      <header className="absolute left-0 top-0 z-50 flex w-full items-center justify-between border-b border-white/70 px-6 py-3 text-xs md:px-10">
+        <div className="leading-tight">
+          <p>DIGITAL DREAMS</p>
+          <p>ANALOG HEART</p>
+        </div>
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[40vw] min-w-[320px] max-w-[760px]">
+        <div className="rounded-full border border-white/80 px-16 py-2">
+          TIKLE1982
+        </div>
+
+        <div className="hidden items-center gap-5 md:flex">
+          <div className="h-8 w-24 bg-white/90" />
+          <p>2026 Tokyo Japan</p>
+        </div>
+      </header>
+
+      {/* Halo */}
+      <div className="absolute left-1/2 top-[43%] z-10 h-[9vw] w-[68vw] max-w-[1280px] -translate-x-1/2 rounded-full border-[10px] border-white md:border-[16px]" />
+
+      {/* Main Girl */}
+      <div className="absolute bottom-0 left-1/2 z-30 w-[72vw] max-w-[760px] -translate-x-1/2 md:w-[42vw]">
         <Image
           src="/images/img_girl_main.png"
-          alt=""
+          alt="main visual"
           width={900}
-          height={1300}
-          className="w-full h-auto"
+          height={1200}
+          priority
+          className="h-auto w-full"
         />
       </div>
 
-      {/* Ring */}
-
-      <div className="absolute left-1/2 top-[48%] -translate-x-1/2 z-10 w-[70vw] max-w-[900px] h-[160px] border-[18px] border-white rounded-full opacity-90"></div>
-
       {/* Floating Icons */}
+      <div className="float-slow absolute left-[7%] top-[21%] z-40 w-[120px] md:w-[220px]">
+        <Image src="/images/img_mheart.png" alt="" width={300} height={300} />
+      </div>
 
-      <motion.div
-        animate={floatAnimation}
-        className="absolute left-[10%] top-[22%] z-30 w-[180px]"
-      >
-        <Image
-          src="/images/img_mheart.png"
-          alt=""
-          width={300}
-          height={300}
-        />
-      </motion.div>
+      <div className="float-fast absolute left-[13%] bottom-[24%] z-40 w-[80px] md:w-[140px]">
+        <Image src="/images/img_gb.png" alt="" width={220} height={220} />
+      </div>
 
-      <motion.div
-        animate={{
-          y: [10, -10, 10],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-        }}
-        className="absolute left-[18%] bottom-[20%] w-[130px]"
-      >
-        <Image
-          src="/images/img_gb.png"
-          alt=""
-          width={250}
-          height={250}
-        />
-      </motion.div>
-
-      <motion.div
-        animate={{
-          y: [-8, 8, -8],
-          rotate: [-5, 5, -5],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-        }}
-        className="absolute right-[12%] bottom-[18%] w-[120px]"
-      >
+      <div className="float-rotate absolute right-[15%] bottom-[20%] z-40 w-[80px] md:w-[130px]">
         <Image
           src="/images/img_t1982_cp_retro.png"
           alt=""
           width={220}
           height={260}
         />
-      </motion.div>
+      </div>
 
-      <motion.div
-        animate={floatAnimation}
-        className="absolute right-[8%] top-[12%] w-[120px]"
-      >
+      <div className="float-slow absolute right-[8%] top-[12%] z-40 hidden w-[150px] md:block">
         <Image
           src="/images/img_silver_rings.png"
           alt=""
-          width={220}
-          height={220}
+          width={240}
+          height={240}
         />
-      </motion.div>
+      </div>
 
-      <motion.div
-        animate={floatAnimation}
-        className="absolute right-[24%] top-[18%] w-[120px]"
-      >
+      <div className="float-fast absolute right-[28%] top-[11%] z-40 hidden w-[130px] md:block">
         <Image
           src="/images/img_silver_heart.png"
           alt=""
           width={220}
           height={220}
         />
-      </motion.div>
+      </div>
 
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [.8, 1, .8],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-        }}
-        className="absolute left-[16%] top-[12%] w-[55px]"
-      >
+      <div className="twinkle absolute left-[17%] top-[12%] z-40 w-[70px] md:w-[110px]">
         <Image
           src="/images/img_silver_glitter.png"
           alt=""
-          width={80}
-          height={80}
+          width={160}
+          height={160}
         />
-      </motion.div>
-
-      {/* Text */}
-
-      <div className="absolute left-[18%] bottom-[18%] z-40 text-white max-w-sm text-sm leading-6">
-
-        <Typewriter
-          words={[
-`My work goes beyond mere visual expression
-I aim to convey emotions and weave stories through my art.
-With imaginative imagery and vibrant colors,
-I'm ready to capture your attention.`
-          ]}
-          cursor
-          typeSpeed={25}
-        />
-
       </div>
 
-      <div className="absolute right-[20%] top-[18%] text-white text-sm leading-6">
-
-        <Typewriter
-          words={[
-`Born in the Digital Age.
-Inspired by Tokyo, 1989.
-Designing Tomorrow's Nostalgia.`
-          ]}
-          cursor
-          typeSpeed={28}
+      <div className="twinkle absolute right-[32%] top-[10%] z-40 hidden w-[70px] md:block">
+        <Image
+          src="/images/img_silver_glitter.png"
+          alt=""
+          width={140}
+          height={140}
         />
-
       </div>
 
-      <div className="absolute left-[30%] top-[28%] text-white text-sm leading-6">
+      {/* Typewriter Texts */}
+      <div className="type-text type-1 absolute bottom-[18%] left-[19%] z-50 hidden max-w-[420px] whitespace-pre-line text-xs leading-relaxed md:block">
+        My work goes beyond mere visual expression{"\n"}
+        I aim to convey emotions and weave stories through my art.{"\n"}
+        With imaginative imagery and vibrant colors,{"\n"}
+        I’m ready to capture your attention.
+      </div>
 
-        <Typewriter
-          words={[
-`Tokyo Nights.
-Neon Lights.
-Digital Dreams.`
-          ]}
-          cursor
-          typeSpeed={28}
-        />
+      <div className="type-text type-2 absolute right-[22%] top-[17%] z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block">
+        Born in the Digital Age.{"\n"}
+        Inspired by Tokyo, 1989.{"\n"}
+        Designing Tomorrow’s Nostalgia.
+      </div>
 
+      <div className="type-text type-3 absolute left-[30%] top-[24%] z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block">
+        Tokyo Nights.{"\n"}
+        Neon Lights.{"\n"}
+        Digital Dreams.
       </div>
 
       {/* Navigation */}
+      <nav className="absolute bottom-[10%] right-[8%] z-50 md:bottom-[17%] md:right-[18%]">
+        <p className="mb-6 text-sm font-bold">SIDE A</p>
 
-      <div className="absolute right-[18%] bottom-[18%] text-white z-50">
-
-        <p className="mb-5 tracking-[0.3em]">SIDE A</p>
-
-        <div className="space-y-4 text-2xl font-semibold">
-
-          <Link
-            href="/about"
-            className="block hover:translate-x-2 transition"
-          >
+        <div className="space-y-4 text-lg font-bold md:text-2xl">
+          <Link href="/about" className="block transition hover:translate-x-2">
             01 ABOUT
           </Link>
 
           <Link
             href="/web-design"
-            className="block hover:translate-x-2 transition"
+            className="block transition hover:translate-x-2"
           >
             02 WEB DESIGN
           </Link>
 
-          <Link
-            href="/graphic"
-            className="block hover:translate-x-2 transition"
-          >
+          <Link href="/graphic" className="block transition hover:translate-x-2">
             03 GRAPHIC
           </Link>
-
         </div>
-
-      </div>
+      </nav>
 
       {/* Footer */}
-
-      <div className="absolute left-10 bottom-10 flex items-center gap-4 text-white">
-
+      <footer className="absolute bottom-8 left-6 z-50 text-xs md:left-10">
         <Image
           src="/images/icon_world.png"
           alt=""
-          width={32}
-          height={32}
+          width={60}
+          height={60}
+          className="mb-3"
         />
+        <p>© TIKLE1982</p>
+        <p className="mt-2">Korean Designer based in tokyo</p>
+      </footer>
 
-        <div>
+      <style jsx global>{`
+        @keyframes floatSlow {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-18px);
+          }
+        }
 
-          <p>© TIKLE1982</p>
+        @keyframes floatFast {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(14px);
+          }
+        }
 
-          <p className="text-sm opacity-70">
-            Korean Designer based in Tokyo
-          </p>
+        @keyframes floatRotate {
+          0%,
+          100% {
+            transform: translateY(0) rotate(-4deg);
+          }
+          50% {
+            transform: translateY(-16px) rotate(5deg);
+          }
+        }
 
-        </div>
+        @keyframes twinkle {
+          0%,
+          100% {
+            opacity: 0.75;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.18);
+          }
+        }
 
-      </div>
+        .float-slow {
+          animation: floatSlow 6s ease-in-out infinite;
+        }
 
+        .float-fast {
+          animation: floatFast 4.5s ease-in-out infinite;
+        }
+
+        .float-rotate {
+          animation: floatRotate 5.5s ease-in-out infinite;
+        }
+
+        .twinkle {
+          animation: twinkle 3.5s ease-in-out infinite;
+        }
+
+        .type-text {
+          overflow: hidden;
+          width: 0;
+          border-right: 1px solid white;
+          animation-fill-mode: forwards;
+        }
+
+        .type-1 {
+          animation: typing1 4s steps(150) 0.5s forwards,
+            cursor 0.8s step-end infinite;
+        }
+
+        .type-2 {
+          animation: typing2 3s steps(90) 4.8s forwards,
+            cursor 0.8s step-end infinite;
+        }
+
+        .type-3 {
+          animation: typing3 2.4s steps(60) 8.2s forwards,
+            cursor 0.8s step-end infinite;
+        }
+
+        @keyframes typing1 {
+          from {
+            width: 0;
+          }
+          to {
+            width: 420px;
+          }
+        }
+
+        @keyframes typing2 {
+          from {
+            width: 0;
+          }
+          to {
+            width: 260px;
+          }
+        }
+
+        @keyframes typing3 {
+          from {
+            width: 0;
+          }
+          to {
+            width: 130px;
+          }
+        }
+
+        @keyframes cursor {
+          50% {
+            border-color: transparent;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .type-text {
+            display: none;
+          }
+        }
+      `}</style>
     </main>
   );
 }
