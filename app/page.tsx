@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-
+const textPosition = {
+  text1: "bottom-[18%] left-[19%]",
+  text2: "right-[22%] top-[17%]",
+  text3: "left-[30%] top-[24%]",
+};
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -46,8 +50,31 @@ export default function Home() {
   </div>
 </header>
 
-      {/* Halo */}
-      <div className="absolute left-1/2 top-[43%] z-10 h-[9vw] w-[68vw] max-w-[1280px] -translate-x-1/2 rounded-full border-[10px] border-white md:border-[16px]" />
+  
+      {/* Halo Ring */}
+<div
+  className="
+    absolute
+    left-1/2
+    top-[44%]
+    z-10
+    w-[76vw]
+    max-w-[1320px]
+    -translate-x-1/2
+    -translate-y-1/2
+    pointer-events-none
+    select-none
+  "
+>
+  <Image
+    src="/images/wt_ring.png"
+    alt="Halo Ring"
+    width={1600}
+    height={420}
+    priority
+    className="w-full h-auto"
+  />
+</div>
 
       {/* Main Girl */}
       <div className="absolute bottom-0 left-1/2 z-30 w-[72vw] max-w-[760px] -translate-x-1/2 md:w-[42vw]">
@@ -116,24 +143,31 @@ export default function Home() {
       </div>
 
       {/* Typewriter Texts */}
-      <div className="type-text type-1 absolute bottom-[18%] left-[19%] z-50 hidden max-w-[420px] whitespace-pre-line text-xs leading-relaxed md:block">
-        My work goes beyond mere visual expression{"\n"}
-        I aim to convey emotions and weave stories through my art.{"\n"}
-        With imaginative imagery and vibrant colors,{"\n"}
-        I’m ready to capture your attention.
-      </div>
+  {/* Typewriter Texts */}
+<div
+  className={`type-text type-1 absolute ${textPosition.text1} z-50 hidden max-w-[420px] whitespace-pre-line text-xs leading-relaxed md:block`}
+>
+  My work goes beyond mere visual expression{"\n"}
+  I aim to convey emotions and weave stories through my art.{"\n"}
+  With imaginative imagery and vibrant colors,{"\n"}
+  I’m ready to capture your attention.
+</div>
 
-      <div className="type-text type-2 absolute right-[22%] top-[17%] z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block">
-        Born in the Digital Age.{"\n"}
-        Inspired by Tokyo, 1989.{"\n"}
-        Designing Tomorrow’s Nostalgia.
-      </div>
+<div
+  className={`type-text type-2 absolute ${textPosition.text2} z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block`}
+>
+  Born in the Digital Age.{"\n"}
+  Inspired by Tokyo, 1989.{"\n"}
+  Designing Tomorrow’s Nostalgia.
+</div>
 
-      <div className="type-text type-3 absolute left-[30%] top-[24%] z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block">
-        Tokyo Nights.{"\n"}
-        Neon Lights.{"\n"}
-        Digital Dreams.
-      </div>
+<div
+  className={`type-text type-3 absolute ${textPosition.text3} z-50 hidden whitespace-pre-line text-xs leading-relaxed md:block`}
+>
+  Tokyo Nights.{"\n"}
+  Neon Lights.{"\n"}
+  Digital Dreams.
+</div>
 
       {/* Navigation */}
       <nav className="absolute bottom-[10%] right-[8%] z-50 md:bottom-[17%] md:right-[18%]">
