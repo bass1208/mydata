@@ -1257,6 +1257,10 @@ body {
     top: 50%;
   }
 
+  .sm\:bottom-\[28\%\] {
+    bottom: 28%;
+  }
+
   .sm\:w-\[105px\] {
     width: 105px;
   }
