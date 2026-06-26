@@ -1,9 +1,25 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+
+const floatAnimation = {
+  y: [-12, 12, -12],
+  transition: {
+    duration: 6,
+    repeat: Infinity,
+    ease: "easeInOut",
+  },
+};
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full overflow-hidden bg-[#0b8fe8] text-white">
+    <main className="relative h-screen overflow-hidden bg-black">
+
       {/* Background */}
+
       <Image
         src="/images/16-9.jpeg"
         alt=""
@@ -12,161 +28,217 @@ export default function Home() {
         className="object-cover"
       />
 
-      {/* Header */}
-      <header className="absolute left-0 top-0 z-30 flex w-full items-center justify-between border-b border-white/70 px-10 py-4 text-sm">
-        <div className="leading-tight tracking-wide">
-          <p>DIGITAL DREAMS</p>
-          <p>ANALOG HEART</p>
+      {/* Girl */}
+
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[40vw] min-w-[320px] max-w-[760px]">
+        <Image
+          src="/images/img_girl_main.png"
+          alt=""
+          width={900}
+          height={1300}
+          className="w-full h-auto"
+        />
+      </div>
+
+      {/* Ring */}
+
+      <div className="absolute left-1/2 top-[48%] -translate-x-1/2 z-10 w-[70vw] max-w-[900px] h-[160px] border-[18px] border-white rounded-full opacity-90"></div>
+
+      {/* Floating Icons */}
+
+      <motion.div
+        animate={floatAnimation}
+        className="absolute left-[10%] top-[22%] z-30 w-[180px]"
+      >
+        <Image
+          src="/images/img_mheart.png"
+          alt=""
+          width={300}
+          height={300}
+        />
+      </motion.div>
+
+      <motion.div
+        animate={{
+          y: [10, -10, 10],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+        }}
+        className="absolute left-[18%] bottom-[20%] w-[130px]"
+      >
+        <Image
+          src="/images/img_gb.png"
+          alt=""
+          width={250}
+          height={250}
+        />
+      </motion.div>
+
+      <motion.div
+        animate={{
+          y: [-8, 8, -8],
+          rotate: [-5, 5, -5],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+        }}
+        className="absolute right-[12%] bottom-[18%] w-[120px]"
+      >
+        <Image
+          src="/images/img_t1982_cp_retro.png"
+          alt=""
+          width={220}
+          height={260}
+        />
+      </motion.div>
+
+      <motion.div
+        animate={floatAnimation}
+        className="absolute right-[8%] top-[12%] w-[120px]"
+      >
+        <Image
+          src="/images/img_silver_rings.png"
+          alt=""
+          width={220}
+          height={220}
+        />
+      </motion.div>
+
+      <motion.div
+        animate={floatAnimation}
+        className="absolute right-[24%] top-[18%] w-[120px]"
+      >
+        <Image
+          src="/images/img_silver_heart.png"
+          alt=""
+          width={220}
+          height={220}
+        />
+      </motion.div>
+
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [.8, 1, .8],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+        }}
+        className="absolute left-[16%] top-[12%] w-[55px]"
+      >
+        <Image
+          src="/images/img_silver_glitter.png"
+          alt=""
+          width={80}
+          height={80}
+        />
+      </motion.div>
+
+      {/* Text */}
+
+      <div className="absolute left-[18%] bottom-[18%] z-40 text-white max-w-sm text-sm leading-6">
+
+        <Typewriter
+          words={[
+`My work goes beyond mere visual expression
+I aim to convey emotions and weave stories through my art.
+With imaginative imagery and vibrant colors,
+I'm ready to capture your attention.`
+          ]}
+          cursor
+          typeSpeed={25}
+        />
+
+      </div>
+
+      <div className="absolute right-[20%] top-[18%] text-white text-sm leading-6">
+
+        <Typewriter
+          words={[
+`Born in the Digital Age.
+Inspired by Tokyo, 1989.
+Designing Tomorrow's Nostalgia.`
+          ]}
+          cursor
+          typeSpeed={28}
+        />
+
+      </div>
+
+      <div className="absolute left-[30%] top-[28%] text-white text-sm leading-6">
+
+        <Typewriter
+          words={[
+`Tokyo Nights.
+Neon Lights.
+Digital Dreams.`
+          ]}
+          cursor
+          typeSpeed={28}
+        />
+
+      </div>
+
+      {/* Navigation */}
+
+      <div className="absolute right-[18%] bottom-[18%] text-white z-50">
+
+        <p className="mb-5 tracking-[0.3em]">SIDE A</p>
+
+        <div className="space-y-4 text-2xl font-semibold">
+
+          <Link
+            href="/about"
+            className="block hover:translate-x-2 transition"
+          >
+            01 ABOUT
+          </Link>
+
+          <Link
+            href="/web-design"
+            className="block hover:translate-x-2 transition"
+          >
+            02 WEB DESIGN
+          </Link>
+
+          <Link
+            href="/graphic"
+            className="block hover:translate-x-2 transition"
+          >
+            03 GRAPHIC
+          </Link>
+
         </div>
 
-        <div className="rounded-full border border-white/80 px-20 py-2 text-sm tracking-wide">
-          TIKLE1982
+      </div>
+
+      {/* Footer */}
+
+      <div className="absolute left-10 bottom-10 flex items-center gap-4 text-white">
+
+        <Image
+          src="/images/icon_world.png"
+          alt=""
+          width={32}
+          height={32}
+        />
+
+        <div>
+
+          <p>© TIKLE1982</p>
+
+          <p className="text-sm opacity-70">
+            Korean Designer based in Tokyo
+          </p>
+
         </div>
 
-        <div className="flex items-center gap-5">
-          <div className="h-7 w-24 bg-[repeating-linear-gradient(90deg,#fff_0_2px,transparent_2px_5px)]" />
-          <p>2026 Tokyo Japan</p>
-        </div>
-      </header>
+      </div>
 
-      {/* Main girl */}
-      <Image
-        src="/images/img_girl_main.png"
-        alt="main girl"
-        width={850}
-        height={1050}
-        priority
-        className="absolute bottom-0 left-1/2 z-20 w-[44vw] max-w-[850px] -translate-x-1/2"
-      />
-
-      {/* White orbit */}
-      <div className="absolute left-1/2 top-[43%] z-10 h-[105px] w-[67vw] -translate-x-1/2 rounded-[50%] border-[10px] border-white" />
-
-      {/* Objects */}
-      <Image
-        src="/images/img_mheart.png"
-        alt=""
-        width={260}
-        height={180}
-        className="absolute left-[8%] top-[22%] z-20 w-[15vw]"
-      />
-
-      <Image
-        src="/images/img_silver_heart.png"
-        alt=""
-        width={170}
-        height={170}
-        className="absolute left-[31%] top-[9%] z-20 w-[8vw]"
-      />
-
-      <Image
-        src="/images/img_silver_heart.png"
-        alt=""
-        width={200}
-        height={200}
-        className="absolute right-[33%] top-[30%] z-30 w-[10vw]"
-      />
-
-      <Image
-        src="/images/img_silver_rings.png"
-        alt=""
-        width={220}
-        height={220}
-        className="absolute right-[10%] top-[12%] z-20 w-[12vw]"
-      />
-
-      <Image
-        src="/images/img_gb.png"
-        alt=""
-        width={170}
-        height={220}
-        className="absolute bottom-[25%] left-[9%] z-20 w-[9vw] -rotate-12"
-      />
-
-      <Image
-        src="/images/img_t1982_cp_retro.png"
-        alt=""
-        width={210}
-        height={230}
-        className="absolute bottom-[19%] right-[15%] z-20 w-[10vw]"
-      />
-
-      {/* Glitters */}
-      <Image
-        src="/images/img_silver_glitter.png"
-        alt=""
-        width={90}
-        height={90}
-        className="absolute left-[15%] top-[11%] z-20 w-[6vw]"
-      />
-
-      <Image
-        src="/images/img_silver_glitter.png"
-        alt=""
-        width={90}
-        height={90}
-        className="absolute left-[7%] top-[50%] z-20 w-[5vw]"
-      />
-
-      <Image
-        src="/images/img_silver_glitter.png"
-        alt=""
-        width={90}
-        height={90}
-        className="absolute right-[33%] top-[10%] z-20 w-[6vw]"
-      />
-
-      <Image
-        src="/images/img_silver_glitter.png"
-        alt=""
-        width={90}
-        height={90}
-        className="absolute right-[21%] top-[30%] z-20 w-[5vw]"
-      />
-
-      <Image
-        src="/images/img_silver_glitter.png"
-        alt=""
-        width={90}
-        height={90}
-        className="absolute bottom-[32%] right-[32%] z-20 w-[5vw]"
-      />
-
-      {/* Text blocks */}
-      <section className="absolute left-[30%] top-[25%] z-30 text-sm leading-tight">
-        <p>Tokyo Nights.</p>
-        <p>Neon Lights.</p>
-        <p>Digital Dreams.</p>
-      </section>
-
-      <section className="absolute right-[23%] top-[18%] z-30 text-sm leading-tight">
-        <p>Born in the Digital Age.</p>
-        <p>Inspired by Tokyo, 1989.</p>
-        <p>Designing Tomorrow&apos;s Nostalgia.</p>
-      </section>
-
-      <section className="absolute bottom-[23%] left-[19.5%] z-30 max-w-[360px] text-sm leading-tight">
-        <p>My work goes beyond mere visual expression.</p>
-        <p>I aim to convey emotions and weave stories through my art.</p>
-        <p>With imaginative imagery and vibrant colors,</p>
-        <p>I&apos;m ready to capture your attention.</p>
-      </section>
-
-      {/* Menu */}
-      <nav className="absolute bottom-[19%] right-[28%] z-30 text-base font-bold leading-[2.2]">
-        <p className="mb-8">SIDE A</p>
-        <a className="block" href="#about">01 ABOUT</a>
-        <a className="block" href="#web-design">02 WEB DESIGN</a>
-        <a className="block" href="#graphic">03 GRAPHIC</a>
-        <a className="block" href="#contact">04 CONTACT</a>
-      </nav>
-
-      {/* Footer text */}
-      <footer className="absolute bottom-14 left-10 z-30 text-sm leading-loose">
-        <div className="mb-3 h-8 w-16 rounded-full border border-white" />
-        <p>© TIKLE1982</p>
-        <p>Korean Designer based in tokyo</p>
-      </footer>
     </main>
   );
 }
