@@ -1,25 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+
 const layout = {
-  girl: "bottom-[-60px]",
+  girl: "bottom-[-50px]",
   ring: "top-[44%]",
-  heart: "left-[8%] top-[20%]",
-  gameboy: "left-[15%] bottom-[22%]",
-  cassette: "right-[15%] bottom-[18%]",
-  text1: "left-[8vw] bottom-[14vh]",
-  text2: "right-[8vw] top-[12vh]",
-  text3: "left-[34vw] top-[22vh]",
+  text1: "bottom-[18%] left-[19%]",
+  text2: "right-[22%] top-[17%]",
+  text3: "left-[30%] top-[24%]",
 };
+
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
-      <Image
-        src="/images/16-9.jpeg"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-      />
 
       {/* Header */}
 {/* Header */}
@@ -56,33 +48,22 @@ export default function Home() {
 </header>
       {/* Halo Ring */}
 <div
-  className="
-    absolute
-    left-1/2
-    top-[44%]
-    z-10
-    w-[76vw]
-    max-w-[1320px]
-    -translate-x-1/2
-    -translate-y-1/2
-    pointer-events-none
-    select-none
-  "
+  className={`absolute left-1/2 ${layout.ring} z-10 w-[76vw] max-w-[1320px] -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none`}
 >
-  <Image
-    src="/images/wt_ring.png"
-    alt="Halo Ring"
-    width={1600}
-    height={420}
-    priority
-    className="w-full h-auto"
-  />
-</div>
 
       {/* Main Girl */}
 <div
-  className={`absolute ${heroPosition.girl} left-1/2 z-30 w-[72vw] max-w-[760px] -translate-x-1/2 md:w-[42vw]`}
+  className={`absolute ${layout.girl} left-1/2 z-30 w-[72vw] max-w-[760px] -translate-x-1/2 md:w-[42vw]`}
 >
+  <Image
+    src="/images/img_girl_main.png"
+    alt="main visual"
+    width={900}
+    height={1200}
+    priority
+    className="h-auto w-full"
+  />
+</div>
 
       {/* Floating Icons */}
       <div className="float-slow absolute left-[7%] top-[21%] z-40 w-[120px] md:w-[220px]">
@@ -199,7 +180,6 @@ export default function Home() {
         <p>© TIKLE1982</p>
         <p className="mt-2">Korean Designer based in tokyo</p>
       </footer>
-{/* SNS Icons */}
 {/* SNS Icons */}
 <div className="absolute bottom-8 right-8 z-50 md:right-14 md:bottom-10">
   <div className="flex items-center justify-center gap-[24px] md:gap-[34px]">
