@@ -48,8 +48,28 @@ export default function Home() {
 </header>
       {/* Halo Ring */}
 <div
-  className={`absolute left-1/2 ${layout.ring} z-10 w-[76vw] max-w-[1320px] -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none`}
+  className="
+    absolute
+    left-1/2
+    top-[44%]
+    z-10
+    w-[76vw]
+    max-w-[1320px]
+    -translate-x-1/2
+    -translate-y-1/2
+    pointer-events-none
+    select-none
+  "
 >
+  <Image
+    src="/images/wt_ring.png"
+    alt="Halo Ring"
+    width={1600}
+    height={420}
+    priority
+    className="w-full h-auto"
+  />
+</div>
 
       {/* Main Girl */}
 <div
