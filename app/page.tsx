@@ -24,18 +24,18 @@ const layout = {
     "xl:left-[7%] xl:top-[21%] xl:w-[220px]",
 
   gameboy:
-    "left-[2%] bottom-[32%] w-[82px] " +
-    "sm:left-[5%] sm:bottom-[31%] sm:w-[105px] " +
+    "left-[2%] bottom-[32%] w-[105px] " +
+    "sm:left-[5%] sm:bottom-[31%] sm:w-[125px] " +
     "md:left-[7%] md:bottom-[28%] md:w-[145px] " +
-    "lg:left-[10%] lg:bottom-[25%] lg:w-[190px] " +
-    "xl:left-[13%] xl:bottom-[24%] xl:w-[240px]",
+    "lg:left-[10%] lg:bottom-[28%] lg:w-[190px] " +
+    "xl:left-[13%] xl:bottom-[30%] xl:w-[240px]",
 
   cassette:
     "right-[3%] bottom-[31%] w-[68px] " +
     "sm:right-[4%] sm:bottom-[30%] sm:w-[85px] " +
     "md:right-[7%] md:bottom-[28%] md:w-[120px] " +
-    "lg:right-[11%] lg:bottom-[28%] lg:w-[180px] " +
-    "xl:right-[15%] xl:bottom-[30%] xl:w-[230px]",
+    "lg:right-[11%] lg:bottom-[28%] lg:w-[120px] " +
+    "xl:right-[15%] xl:bottom-[30%] xl:w-[150px]",
 
   rings:
     "right-[3%] top-[20%] w-[62px] " +
@@ -45,7 +45,7 @@ const layout = {
     "xl:right-[8%] xl:top-[12%] xl:w-[150px]",
 
   silverHeart:
-    "right-[22%] top-[16%] w-[58px] " +
+    "left-[30%] top-[16%] w-[70px] " +
     "sm:right-[25%] sm:top-[15%] sm:w-[72px] " +
     "md:left-[28%] md:top-[13%] md:w-[125px] " +
     "lg:left-[24%] lg:top-[12%] lg:w-[115px] " +
@@ -259,7 +259,7 @@ export default function Home() {
       </nav>
 
       {/* Footer */}
-      <footer className="absolute bottom-6 left-5 z-50 text-[10px] md:bottom-8 md:left-10 md:text-xs">
+      <footer className="absolute bottom-10 left-5 z-50 text-[10px] md:bottom-8 md:left-10 md:text-xs">
         <Image
           src="/images/icon_world.png"
           alt=""
@@ -272,7 +272,7 @@ export default function Home() {
       </footer>
 
       {/* SNS Icons */}
-      <div className="absolute bottom-6 right-5 z-50 md:bottom-10 md:right-14">
+      <div className="absolute bottom-10 right-5 z-50 md:bottom-10 md:right-14">
         <div className="flex items-center justify-center gap-[18px] md:gap-[34px]">
           <a
             href="https://www.instagram.com/bass1208"
