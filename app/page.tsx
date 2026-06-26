@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const layout = {
-  girl: "bottom-[-50px]",
+  girl: "top-[24%]",
   ring: "top-[44%]",
   text1: "bottom-[18%] left-[19%]",
   text2: "right-[22%] top-[17%]",
