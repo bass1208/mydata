@@ -5,13 +5,13 @@ const layout = {
   girl: "top-[28%] md:top-[18%]",
   ring: "top-[52%] md:top-[55%]",
 
-  heart: "left-[5%] top-[20%] w-[88px] md:left-[7%] md:top-[21%] md:w-[220px]",
+  heart: "left-[5%] top-[20%] w-[88px] md:left-[57%] md:top-[21%] md:w-[220px]",
   gameboy:
     "left-[6%] bottom-[30%] w-[58px] md:left-[13%] md:bottom-[24%] md:w-[140px]",
   cassette:
     "right-[5%] bottom-[30%] w-[58px] md:right-[15%] md:bottom-[20%] md:w-[130px]",
   rings:
-    "right-[4%] top-[18%] w-[70px] md:right-[28%] md:top-[12%] md:w-[150px]",
+    "right-[4%] top-[18%] w-[70px] md:right-[18%] md:top-[12%] md:w-[150px]",
   silverHeart:
     "right-[24%] top-[15%] w-[64px] md:right-[28%] md:top-[11%] md:w-[130px]",
 
